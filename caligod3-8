@@ -1,0 +1,399 @@
+<div class="phase">
+  <h2>Level 4 (4-6 weeks)</h2>
+
+  <p><strong>Objective:</strong> Further increase workout intensity and volume for advanced strength and muscle gains.</p>
+
+  <h3>Week 1-6 Schedule</h3>
+
+  <table class="schedule">
+    <tr>
+      <th>Day</th>
+      <th>Workout</th>
+    </tr>
+    <tr>
+      <td>Day 1</td>
+      <td>Full Body Workout</td>
+    </tr>
+    <tr>
+      <td>Day 2</td>
+      <td>Rest</td>
+    </tr>
+    <tr>
+      <td>Day 3</td>
+      <td>Full Body Workout</td>
+    </tr>
+    <tr>
+      <td>Day 4</td>
+      <td>Rest</td>
+    </tr>
+    <tr>
+      <td>Day 5</td>
+      <td>Full Body Workout</td>
+    </tr>
+    <tr>
+      <td>Day 6</td>
+      <td>Rest</td>
+    </tr>
+    <tr>
+      <td>Day 7</td>
+      <td>Rest</td>
+    </tr>
+  </table>
+
+  <h3>Day 1: Full Body Workout</h3>
+
+  <table class="workout">
+    <tr>
+      <th>Exercise</th>
+      <th>Reps</th>
+      <th>Sets</th>
+      <th>Rest Time</th>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Diamond push-ups
+          <span class="tooltiptext">Push-ups with hands forming a diamond shape, emphasizing triceps.</span>
+        </span>
+        <span class="difficulty intermediate">Intermediate</span>
+        <div class="muscle-group">Primary: Triceps, Chest</div>
+      </td>
+      <td>5</td>
+      <td>3</td>
+      <td>90s</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Pull-ups + Jump pull-ups
+          <span class="tooltiptext">Combination of regular pull-ups and explosive pull-ups with a jump.</span>
+        </span>
+        <span class="difficulty advanced">Advanced</span>
+        <div class="muscle-group">Primary: Back, Biceps</div>
+      </td>
+      <td>4+6</td>
+      <td>4</td>
+      <td>90s</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Dips + Jump dips
+          <span class="tooltiptext">Combination of regular dips and explosive dips with a jump.</span>
+        </span>
+        <span class="difficulty advanced">Advanced</span>
+        <div class="muscle-group">Primary: Triceps, Chest, Shoulders</div>
+      </td>
+      <td>5+5</td>
+      <td>3</td>
+      <td>90s</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Australian chin-ups
+          <span class="tooltiptext">Pulling exercise performed with an underhand grip on a low bar.</span>
+        </span>
+        <span class="difficulty intermediate">Intermediate</span>
+        <div class="muscle-group">Primary: Back, Biceps</div>
+      </td>
+      <td>14</td>
+      <td>4</td>
+      <td>90s</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Push-ups
+          <span class="tooltiptext">Standard push-ups targeting chest, shoulders, and triceps.</span>
+        </span>
+        <span class="difficulty beginner">Beginner</span>
+        <div class="muscle-group">Primary: Chest, Shoulders, Triceps</div>
+      </td>
+      <td>8</td>
+      <td>4</td>
+      <td>90s</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Straddle pike push-ups
+          <span class="tooltiptext">Push-ups performed with legs in a straddle position and hips raised.</span>
+        </span>
+        <span class="difficulty advanced">Advanced</span>
+        <div class="muscle-group">Primary: Shoulders, Triceps</div>
+      </td>
+      <td>10</td>
+      <td>3</td>
+      <td>90s</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Straight leg raises
+          <span class="tooltiptext">Lying on your back and raising straight legs to target lower abs.</span>
+        </span>
+        <span class="difficulty intermediate">Intermediate</span>
+        <div class="muscle-group">Primary: Lower Abs</div>
+      </td>
+      <td>6</td>
+      <td>4</td>
+      <td>90s</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Jump squats
+          <span class="tooltiptext">Explosive squats with a jump at the top of the movement.</span>
+        </span>
+        <span class="difficulty intermediate">Intermediate</span>
+        <div class="muscle-group">Primary: Quadriceps, Glutes, Calves</div>
+      </td>
+      <td>15</td>
+      <td>4</td>
+      <td>90s</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Squats
+          <span class="tooltiptext">Standard bodyweight squats targeting lower body muscles.</span>
+        </span>
+        <span class="difficulty beginner">Beginner</span>
+        <div class="muscle-group">Primary: Quadriceps, Hamstrings, Glutes</div>
+      </td>
+      <td>20</td>
+      <td>3</td>
+      <td>90s</td>
+    </tr>
+  </table>
+
+  <h3>Day 3: Full Body Workout</h3>
+
+  <table class="workout">
+    <tr>
+      <th>Exercise</th>
+      <th>Reps</th>
+      <th>Sets</th>
+      <th>Rest Time</th>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Chin-ups + 10s isometric hold
+          <span class="tooltiptext">Chin-ups followed by holding the top position for 10 seconds.</span>
+        </span>
+        <span class="difficulty advanced">Advanced</span>
+        <div class="muscle-group">Primary: Back, Biceps</div>
+      </td>
+      <td>4 + 10s</td>
+      <td>4</td>
+      <td>90s</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Diamond push-ups
+          <span class="tooltiptext">Push-ups with hands forming a diamond shape, emphasizing triceps.</span>
+        </span>
+        <span class="difficulty intermediate">Intermediate</span>
+        <div class="muscle-group">Primary: Triceps, Chest</div>
+      </td>
+      <td>5</td>
+      <td>3</td>
+      <td>90s</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Dips + Jump dips
+          <span class="tooltiptext">Combination of regular dips and explosive dips with a jump.</span>
+        </span>
+        <span class="difficulty advanced">Advanced</span>
+        <div class="muscle-group">Primary: Triceps, Chest, Shoulders</div>
+      </td>
+      <td>5+5</td>
+      <td>3</td>
+      <td>90s</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Explosive Australian chin-ups
+          <span class="tooltiptext">Australian chin-ups performed with an explosive pull.</span>
+        </span>
+        <span class="difficulty advanced">Advanced</span>
+        <div class="muscle-group">Primary: Back, Biceps</div>
+      </td>
+      <td>10</td>
+      <td>4</td>
+      <td>90s</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Push-ups
+          <span class="tooltiptext">Standard push-ups targeting chest, shoulders, and triceps.</span>
+        </span>
+        <span class="difficulty beginner">Beginner</span>
+        <div class="muscle-group">Primary: Chest, Shoulders, Triceps</div>
+      </td>
+      <td>8</td>
+      <td>3</td>
+      <td>90s</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Wall walks
+          <span class="tooltiptext">Walking feet up a wall while in a handstand position.</span>
+        </span>
+        <span class="difficulty advanced">Advanced</span>
+        <div class="muscle-group">Primary: Shoulders, Core</div>
+      </td>
+      <td>2</td>
+      <td>4</td>
+      <td>90s</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Pike push-ups
+          <span class="tooltiptext">Push-ups performed with hips raised and head pointing downwards.</span>
+        </span>
+        <span class="difficulty intermediate">Intermediate</span>
+        <div class="muscle-group">Primary: Shoulders, Triceps</div>
+      </td>
+      <td>8</td>
+      <td>3</td>
+      <td>90s</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Windshield wipers on the ground
+          <span class="tooltiptext">Lying on your back, moving legs side to side while keeping them elevated.</span>
+        </span>
+        <span class="difficulty advanced">Advanced</span>
+        <div class="muscle-group">Primary: Obliques, Core</div>
+      </td>
+      <td>6 each side</td>
+      <td>3</td>
+      <td>90s</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Lunges
+          <span class="tooltiptext">Stepping forward into a lunge position, alternating legs.</span>
+        </span>
+        <span class="difficulty beginner">Beginner</span>
+        <div class="muscle-group">Primary: Quadriceps, Hamstrings, Glutes</div>
+      </td>
+      <td>Max</td>
+      <td>4</td>
+      <td>90s</td>
+    </tr>
+  </table>
+
+  <h3>Day 5: Full Body Workout</h3>
+
+  <table class="workout">
+    <tr>
+      <th>Exercise</th>
+      <th>Reps</th>
+      <th>Sets</th>
+      <th>Rest Time</th>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Chin-ups
+          <span class="tooltiptext">Pulling exercise with palms facing towards you.</span>
+        </span>
+        <span class="difficulty intermediate">Intermediate</span>
+        <div class="muscle-group">Primary: Back, Biceps</div>
+      </td>
+      <td>4</td>
+      <td>4</td>
+      <td>90s</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Dips
+          <span class="tooltiptext">Lowering and raising the body using parallel bars.</span>
+        </span>
+        <span class="difficulty intermediate">Intermediate</span>
+        <div class="muscle-group">Primary: Triceps, Chest, Shoulders</div>
+      </td>
+      <td>6</td>
+      <td>4</td>
+      <td>90s</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Pull-ups
+          <span class="tooltiptext">Pulling exercise with palms facing away from you.</span>
+        </span>
+        <span class="difficulty intermediate">Intermediate</span>
+        <div class="muscle-group">Primary: Back, Biceps</div>
+      </td>
+      <td>3</td>
+      <td>4</td>
+      <td>90s</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Jump pull-ups
+          <span class="tooltiptext">Explosive pull-ups using momentum to assist the movement.</span>
+        </span>
+        <span class="difficulty intermediate">Intermediate</span>
+        <div class="muscle-group">Primary: Back, Biceps</div>
+      </td>
+      <td>8</td>
+      <td>4</td>
+      <td>90s</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Hindu beginner push-ups
+          <span class="tooltiptext">A dynamic push-up variation involving a swooping motion.</span>
+        </span>
+        <span class="difficulty beginner">Beginner</span>
+        <div class="muscle-group">Primary: Chest, Shoulders, Triceps</div>
+      </td>
+      <td>12</td>
+      <td>3</td>
+      <td>90s</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Hollowbody on the ground
+          <span class="tooltiptext">Core exercise holding a hollow position on the ground.</span>
+        </span>
+        <span class="difficulty intermediate">Intermediate</span>
+        <div class="muscle-group">Primary: Core</div>
+      </td>
+      <td>20s</td>
+      <td>3</td>
+      <td>90s</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Hip thrusts
+          <span class="tooltiptext">Lifting hips upward while lying on your back with knees bent.</span>
+        </span>
+        <span class="difficulty beginner">Beginner</span>
+        <div class="muscle-group">Primary: Glutes, Hamstrings</div>
+      </td>
+      <td>15</td>
+      <td>4</td>
+      <td>90s</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Superman hold
+          <span class="tooltiptext">Lying face down and lifting arms, legs, and chest off the ground.</span>
+        </span>
+        <span class="difficulty beginner">Beginner</span>
+        <div class="muscle-group">Primary: Lower Back, Glutes</div>
+      </td>
+      <td>15s</td>
+      <td>3</td>
+      <td>90s</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Calf raises
+          <span class="tooltiptext">Rising up on your toes to target the calf muscles.</span>
+        </span>
+        <span class="difficulty beginner">Beginner</span>
+        <div class="muscle-group">Primary: Calves</div>
+      </td>
+      <td>10,10,20</td>
+      <td>4</td>
+      <td>90s</td>
+    </tr>
+  </table>
+</div>
