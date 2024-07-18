@@ -203,26 +203,29 @@
         html {
             scroll-behavior: smooth;
         }
-        .price-drop-button {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            display: inline-block;
-            padding: 15px 25px;
-            font-size: 16px;
-            font-weight: bold;
-            color: #ffffff;
-            background-color: #d9534f;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            border: 2px solid #c9302c;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .price-drop-button span {
-            text-decoration: line-through;
-            margin-right: 10px;
-        }
+       .price-drop-button {
+  position: fixed;
+  bottom: 20px;
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for half of button width */
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #d9534f;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 2px solid #c9302c;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.price-drop-button span {
+  text-decoration: line-through;
+  margin-right: 10px;
+}
+
     </style>
 </head>
 <body>
