@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <title>Saiyan Saga L1 (Pre-Program) - Workout Tracking Sheet</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --accent-color: #e74c3c;
+            --bg-color: #ecf0f1;
+            --text-color: #34495e;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .phase {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .objective {
+            font-style: italic;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border: none;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        tr {
+            background-color: #f8f9fa;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        tr:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+            border-bottom: 1px dotted var(--primary-color);
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: var(--text-color);
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .beginner { background-color: #2ecc71; color: white; }
+        .intermediate { background-color: #f39c12; color: white; }
+        .advanced { background-color: #e74c3c; color: white; }
+
+        .muscle-group {
+            font-size: 0.8em;
+            color: var(--accent-color);
+            margin-top: 5px;
+        }
+
+        .collapsible {
+            background-color: var(--primary-color);
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .collapsible:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .collapsible:after {
+            content: '\002B';
+            color: white;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active:after {
+            content: "\2212";
+        }
+
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f9f9f9;
+            transition: max-height 0.2s ease-out;
+        }
+
+        @media screen and (max-width: 600px) {
+            body { font-size: 14px; }
+            .container { width: 100%; padding: 10px; }
+            .phase { padding: 10px; }
+            h1 { font-size: 24px; }
+            h2 { font-size: 20px; }
+            h3 { font-size: 18px; }
+            table { font-size: 12px; width: 100%; }
+            th, td { padding: 5px; }
+            .difficulty { font-size: 10px; padding: 2px 4px; }
+            .muscle-group { font-size: 10px; }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Saiyan Saga L1 (Pre-Program) - Workout Tracking Sheet</h1>
+    </header>
+
+    <div class="container">
+        <div class="phase">
+            <h2>WEEK 1</h2>
+            <p class="objective"><strong>Objective:</strong> Build baseline strength and endurance with proper form.</p>
+
+            <button class="collapsible">Day 1: Upper Body Strength</button>
+            <div class="content">
+                <h3>Skill Training: Pull-Ups / Negative Chin-Ups</h3>
+                <table>
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Reps/Duration</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="tooltip">Pull-Ups / Negative Chin-Ups
+                                <span class="tooltiptext">Perform pull-ups or negative chin-ups for as many reps as possible in 100 seconds.</span>
+                            </span>
+                            <span class="difficulty intermediate">Intermediate</span>
+                            <div class="muscle-group">Primary: Back, Biceps</div>
+                        </td>
+                        <td>Max reps</td>
+                        <td>100sec</td>
+                    </tr>
+                </table>
+
+                <h3>Workout Routine</h3>
+                <table>
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Reps/Duration</th>
+                        <th>Sets</th>
+                        <th>Rest Time</th>
+                    </tr>
+                    <tr>
+                        <td>Pull-up</td>
+                        <td>1 rep</td>
+                        <td rowspan="3">Until failure</td>
+                        <td rowspan="3">1min between sets</td>
+                    </tr>
+                    <tr><td>Push-ups</td><td>10 reps</td></tr>
+                    <tr><td>Pull-up</td><td>2 reps (increasing by 1 each set)</td></tr>
+                </table>
+            </div>
+
+            <button class="collapsible">Day 2: Core and Upper Body</button>
+            <div class="content">
+                <h3>Skill Training: Leg Flutters</h3>
+                <table>
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Reps/Duration</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="tooltip">Leg Flutters
+                                <span class="tooltiptext">Perform leg flutters for as long as possible in 100 seconds.</span>
+                            </span>
+                            <span class="difficulty intermediate">Intermediate</span>
+                            <div class="muscle-group">Primary: Core</div>
+                        </td>
+                        <td>Max reps</td>
+                        <td>100sec</td>
+                    </tr>
+                </table>
+
+                <h3>Workout Routine</h3>
+                <table>
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Reps/Duration</th>
+                        <th>Sets</th>
+                        <th>Rest Time</th>
+                    </tr>
+                    <tr>
+                        <td>Push-Up</td>
+                        <td>1 rep (increasing by 1 each set)</td>
+                        <td rowspan="10">1</td>
+                        <td rowspan="10">N/A</td>
+                    </tr>
+                    <tr><td>Plank</td><td>1 sec (increasing by 1 each set)</td></tr>
+                </table>
+
+                <h3>Additional Workout Routine</h3>
+                <table>
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Reps/Duration</th>
+                        <th>Sets</th>
+                        <th>Rest Time</th>
+                    </tr>
+                    <tr>
+                        <td>Push-ups</td>
+                        <td rowspan="4">1min each</td>
+                        <td rowspan="4">3</td>
+                        <td rowspan="4">1min between sets</td>
+                    </tr>
+                    <tr><td>Plank</td></tr>
+                    <tr><td>Tricep Dips</td></tr>
+                    <tr><td>Glute Bridge</td></tr>
+                </table>
+            </div>
+
+            <button class="collapsible">Day 3: Lower Body and Core</button>
+            <div class="content">
+                <h3>Skill Training: Pull-Ups / Negative Chin-Ups</h3>
+                <table>
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Reps/Duration</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="tooltip">Pull-Ups / Negative Chin-Ups
+                                <span class="tooltiptext">Perform pull-ups or negative chin-ups for as many reps as possible in 100 seconds.</span>
+                            </span>
+                            <span class="difficulty intermediate">Intermediate</span>
+                            <div class="muscle-group">Primary: Back, Biceps</div>
+                        </td>
+                        <td>Max reps</td>
+                        <td>100sec</td>
+                    </tr>
+                </table>
+
+                <h3>Workout Routine</h3>
+                <table>
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Reps/Duration</th>
+                        <th>Sets</th>
+                        <th>Rest Time</th>
+                    </tr>
+                    <tr>
+                        <td>Lunges</td>
+                        <td>20 reps</td>
+                        <td rowspan="7">3</td>
+                        <td rowspan="7">1min between sets</td>
+                    </tr>
+                    <tr><td>Squat Calf Raises</td><td>15 reps</td></tr>
+                    <tr><td>Squat Jumps</td><td>10 reps</td></tr>
+                    <tr><td>Front Jumps</td><td>5 reps</td></tr>
+                    <tr><td>Squat Sit</td><td>30 sec</td></tr>
+                    <tr><td>L-Sit Kick-Out</td><td>1min</td></tr>
+                    <tr><td>Knee Raises</td><td>1min</td></tr>
+                </table>
+
+                <h3>Additional Core Routine</h3>
+                <table>
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Reps/Duration</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>Side Plank (right)</td>
+                        <td>30 sec</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>Side Plank (left)</td>
+                        <td>30 sec</td>
+                        <td>N/A</td>
+                    </tr>
+                </table>
+            </div>
+
+            <button class="collapsible">Day 4: Full Body and Core</button>
+            <div class="content">
+                <h3>Skill Training: Lunges</h3>
+                <table>
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Reps/Duration</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="tooltip">Lunges
+                                <span class="tooltiptext">Perform as many lunges as possible in 100 seconds.</span>
+                            </span>
+                            <span class="difficulty intermediate">Intermediate</span>
+                            <div class="muscle-group">Primary: Legs, Glutes</div>
+                        </td>
+                        <td>Max reps</td>
+                        <td>100sec</td>
+                    </tr>
+                </table>
+
+                <h3>Workout Routine</h3>
+                <table>
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Reps/Duration</th>
+                        <th>Sets</th>
+                        <th>Rest Time</th>
+                    </tr>
+                    <tr>
+                        <td>Burpees</td>
+                        <td rowspan="7">30sec each</td>
+                        <td rowspan="7">4</td>
+                        <td rowspan="7">1min between sets</td>
+                    </tr>
+                    <tr><td>Plank</td></tr>
+                    <tr><td>Squat Calf Raises</td></tr>
+                    <tr><td>Push-ups</td></tr>
+                    <tr><td>Lunges</td></tr>
+                    <tr><td>Side Plank (right)</td></tr>
+                    <tr><td>Side Plank (left)</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add smooth scroll behavior -->
+    <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+    </script>
+
+    <!-- Add collapsible sections -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const collapsibles = document.querySelectorAll('.collapsible');
+        collapsibles.forEach((item) =>
+            item.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            })
+        );
+    });
+    </script>
+</body>
+</html>
