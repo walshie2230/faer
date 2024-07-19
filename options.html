@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RadFit 80s Transformation</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-pink: #ff71ce;
+            --neon-blue: #01cdfe;
+            --neon-green: #05ffa1;
+            --neon-purple: #b967ff;
+            --dark-purple: #1e0033;
+        }
+
+        body {
+            font-family: 'VT323', monospace;
+            background-color: var(--dark-purple);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            background-image: 
+                linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent),
+                linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent);
+            background-size: 50px 50px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 4em;
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink), 0 0 30px var(--neon-pink);
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink), 0 0 30px var(--neon-pink);
+            }
+            to {
+                text-shadow: 0 0 20px var(--neon-pink), 0 0 30px var(--neon-pink), 0 0 40px var(--neon-pink);
+            }
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--neon-blue);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 20px var(--neon-blue);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 0 30px var(--neon-green);
+            border-color: var(--neon-green);
+        }
+
+        .card h3 {
+            color: var(--neon-green);
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--neon-purple);
+            margin: 20px 0;
+        }
+
+        .per-week {
+            font-size: 1.2em;
+            color: var(--neon-blue);
+        }
+
+        .select-btn {
+            background-color: var(--neon-pink);
+            color: var(--dark-purple);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'VT323', monospace;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        .select-btn:hover {
+            background-color: var(--neon-green);
+            box-shadow: 0 0 20px var(--neon-green);
+        }
+
+        #toggleOptions {
+            display: block;
+            margin: 30px auto;
+            font-size: 1.5em;
+        }
+
+        .all-options {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+
+        .all-options.show {
+            max-height: 2000px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        th {
+            background-color: var(--neon-blue);
+            color: var(--dark-purple);
+        }
+
+        tr:hover td {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .benefits {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 30px;
+            border: 2px solid var(--neon-green);
+            box-shadow: 0 0 20px var(--neon-green);
+        }
+
+        .benefits h3 {
+            color: var(--neon-pink);
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .benefits ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .benefits li {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .benefits li::before {
+            content: "⚡";
+            color: var(--neon-blue);
+            margin-right: 10px;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 30px auto;
+            padding: 15px;
+            background-color: var(--neon-purple);
+            color: var(--dark-purple);
+            text-align: center;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.5em;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--neon-green);
+            box-shadow: 0 0 30px var(--neon-green);
+            transform: scale(1.05);
+        }
+
+        .testimonials {
+            font-style: italic;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.2em;
+            color: var(--neon-blue);
+        }
+
+        @media (max-width: 768px) {
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>RadFit 80s Transformation</h1>
+
+        <div class="pricing-cards">
+            <div class="card">
+                <h3>QUICK BURN</h3>
+                <p>4 WEEKS</p>
+                <p class="price">$24.99</p>
+                <p class="per-week">($6.25/week)</p>
+                <button class="select-btn">SELECT</button>
+            </div>
+            <div class="card">
+                <h3>POWER SURGE</h3>
+                <p>8 WEEKS</p>
+                <p class="price">$45</p>
+                <p class="per-week">($5.63/week)</p>
+                <p>Best Value</p>
+                <button class="select-btn">SELECT</button>
+            </div>
+            <div class="card">
+                <h3>TOTAL SYNTHWAVE</h3>
+                <p>12 WEEKS</p>
+                <p class="price">$59.99</p>
+                <p class="per-week">($5.00/week)</p>
+                <p>Most Radical</p>
+                <button class="select-btn">SELECT</button>
+            </div>
+        </div>
+
+        <button id="toggleOptions" class="select-btn">See all options</button>
+
+        <div id="allOptions" class="all-options">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Duration</th>
+                        <th>Price</th>
+                        <th>You Pay</th>
+                        <th>You Save</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <tr>
+    <td>1 week</td>
+    <td>$7.99</td>
+    <td>$7.99</td>
+    <td>-</td>
+</tr>
+<tr>
+    <td>2 weeks</td>
+    <td>$14.99</td>
+    <td>$7.50/w</td>
+    <td>$0.98</td>
+</tr>
+<tr>
+    <td>3 weeks</td>
+    <td>$19.99</td>
+    <td>$6.66/w</td>
+    <td>$3.98</td>
+</tr>
+<tr>
+    <td>4 weeks</td>
+    <td>$24.99</td>
+    <td>$6.25/w</td>
+    <td>$6.97</td>
+</tr>
+<tr>
+    <td>5 weeks</td>
+    <td>$29.99</td>
+    <td>$6.00/w</td>
+    <td>$9.96</td>
+</tr>
+<tr>
+    <td>6 weeks</td>
+    <td>$34.99</td>
+    <td>$5.83/w</td>
+    <td>$12.95</td>
+</tr>
+<tr>
+    <td>7 weeks</td>
+    <td>$39.99</td>
+    <td>$5.71/w</td>
+    <td>$15.94</td>
+</tr>
+<tr>
+    <td>8 weeks</td>
+    <td>$45.00</td>
+    <td>$5.63/w</td>
+    <td>$18.92</td>
+</tr>
+<tr>
+    <td>9 weeks</td>
+    <td>$49.00</td>
+    <td>$5.44/w</td>
+    <td>$22.91</td>
+</tr>
+<tr>
+    <td>10 weeks</td>
+    <td>$53.00</td>
+    <td>$5.30/w</td>
+    <td>$26.90</td>
+</tr>
+<tr>
+    <td>11 weeks</td>
+    <td>$57.00</td>
+    <td>$5.18/w</td>
+    <td>$30.89</td>
+</tr>
+<tr>
+    <td>12 weeks</td>
+    <td>$59.99</td>
+    <td>$5.00/w</td>
+    <td>$35.89</td>
+</tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="benefits">
+            <h3>YOUR RAD PACKAGE INCLUDES:</h3>
+            <ul>
+                <li>Totally tubular daily workout videos</li>
+                <li>Gnarly personalized meal plans</li>
+                <li>Bodacious progress tracking tools</li>
+                <li>Radical community support</li>
+            </ul>
+        </div>
+
+        <a href="#" class="cta-button">START YOUR TRANSFORMATION</a>
+
+        <div class="testimonials">
+            <p>"I got totally shredded in 12 weeks!" - Rad Dan</p>
+            <p>"Most excellent program ever!" - Gnarly Nancy</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleBtn = document.getElementById('toggleOptions');
+            const allOptions = document.getElementById('allOptions');
+
+            toggleBtn.addEventListener('click', () => {
+                allOptions.classList.toggle('show');
+                toggleBtn.textContent = allOptions.classList.contains('show') ? 'Hide options' : 'See all options';
+            });
+
+            const selectButtons = document.querySelectorAll('.select-btn');
+            selectButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const selectedPlan = e.target.closest('.card')?.querySelector('h3')?.textContent || 'Selected plan';
+                    alert(`You've selected the ${selectedPlan} plan. Totally radical choice!`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
