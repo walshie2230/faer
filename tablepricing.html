@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flexible Pricing - Pay What You Want, When You Want</title>
+    <title>Flexible Pricing - Choose Your Plan</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -26,7 +26,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 40px;
             background-color: var(--surface-color);
@@ -157,10 +157,10 @@
 </head>
 <body>
     <div class="container">
-        <h1>Flexible Pricing: Pay What You Want, When You Want</h1>
+        <h1>Choose Your Plan</h1>
         <p class="description">
-            Choose your preferred duration and pay only for what you need. You can always extend your access later,
-            paying week by week or selecting a longer duration for greater savings.
+            Select the duration that best fits your needs. Pay only for what you want, when you want it.
+            Longer durations offer greater savings!
         </p>
         <table class="pricing-table" id="pricingTable">
             <thead>
@@ -180,18 +180,9 @@
 
     <script>
         const pricingData = [
-            { duration: 1, price: 7.99 },
-            { duration: 2, price: 14.99 },
-            { duration: 3, price: 19.99 },
-            { duration: 4, price: 24.99 },
-            { duration: 5, price: 29.99 },
-            { duration: 6, price: 34.99 },
-            { duration: 7, price: 39.99 },
-            { duration: 8, price: 45.00 },
-            { duration: 9, price: 49.00 },
-            { duration: 10, price: 53.00 },
-            { duration: 11, price: 57.00 },
-            { duration: 12, price: 59.99 }
+            { duration: 1, price: 7.99, stripeLink: "https://buy.stripe.com/fZe6sfg7r7sr3i8aEI" },
+            { duration: 4, price: 24.99, stripeLink: "https://buy.stripe.com/cN2cOD6AV5kj6qg5km" },
+            { duration: 12, price: 59.99, stripeLink: "https://buy.stripe.com/28ocOD8J37sr6qgfZ6" }
         ];
 
         const tableBody = document.querySelector('#pricingTable tbody');
@@ -208,7 +199,7 @@
                 <td>$${data.price.toFixed(2)}</td>
                 <td>$${weeklyPrice}</td>
                 <td class="savings">$${savings}</td>
-                <td><a href="#" class="btn" onclick="selectPlan(${data.duration}, ${data.price})">Select</a></td>
+                <td><a href="${data.stripeLink}" class="btn" target="_blank" rel="noopener noreferrer">Select</a></td>
             `;
 
             return row;
@@ -220,11 +211,6 @@
                 const row = createPricingRow(data, isBestValue);
                 tableBody.appendChild(row);
             });
-        }
-
-        function selectPlan(duration, price) {
-            alert(`You've selected the ${duration}-week plan for $${price.toFixed(2)}. Proceed to payment.`);
-            // Here you would typically redirect to a payment page or open a payment modal
         }
 
         // Initialize table
