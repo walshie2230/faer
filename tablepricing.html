@@ -3,116 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing Table</title>
+    <title>Flexible Pricing - Pay What You Want, When You Want</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .pricing-table {
-            border-collapse: collapse;
-            width: 100%;
+        :root {
+            --primary-color: #6200ea;
+            --secondary-color: #00c853;
+            --background-color: #f5f5f5;
+            --surface-color: #ffffff;
+            --text-color: #333333;
+            --border-color: #e0e0e0;
+            --hover-color: #ede7f6;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: var(--surface-color);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .description {
+            text-align: center;
             max-width: 800px;
-            margin: 20px auto;
-            font-family: Arial, sans-serif;
-            color: #ffffff; /* Set text color to white for dark mode */
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+            color: #666;
         }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 15px;
+        }
+
         .pricing-table th, .pricing-table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
+            padding: 20px;
+            text-align: center;
+            border: none;
         }
+
         .pricing-table th {
-            background-color: #333333; /* Dark background for headers */
-            font-weight: bold;
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .pricing-table tr:nth-child(even) {
-            background-color: #444444; /* Slightly lighter dark background for even rows */
+
+        .pricing-table tr {
+            background-color: var(--surface-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
         }
-        .pricing-table tr:nth-child(odd) {
-            background-color: #555555; /* Dark background for odd rows */
-        }
+
         .pricing-table tr:hover {
-            background-color: #666666; /* Darker background on hover */
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            background-color: var(--hover-color);
+        }
+
+        .pricing-table td:first-child {
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            font-weight: 600;
+        }
+
+        .pricing-table td:last-child {
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .savings {
+            color: var(--secondary-color);
+            font-weight: 700;
+        }
+
+        .best-value {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .best-value::after {
+            content: 'Best Value';
+            position: absolute;
+            top: 15px;
+            right: -35px;
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: 700;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .pricing-table th, .pricing-table td {
+                padding: 15px 10px;
+                font-size: 0.9rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .description {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <table class="pricing-table">
-        <tr>
-            <th>Duration</th>
-            <th>Price</th>
-            <th>You Pay (per week)</th>
-            <th>You Save</th>
-        </tr>
-        <tr>
-            <td>1 week</td>
-            <td>$7.99</td>
-            <td>$7.99</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>2 weeks</td>
-            <td>$14.99</td>
-            <td>$7.50</td>
-            <td>$0.98</td>
-        </tr>
-        <tr>
-            <td>3 weeks</td>
-            <td>$19.99</td>
-            <td>$6.66</td>
-            <td>$3.98</td>
-        </tr>
-        <tr>
-            <td>4 weeks</td>
-            <td>$24.99</td>
-            <td>$6.25</td>
-            <td>$6.97</td>
-        </tr>
-        <tr>
-            <td>5 weeks</td>
-            <td>$29.99</td>
-            <td>$6.00</td>
-            <td>$9.96</td>
-        </tr>
-        <tr>
-            <td>6 weeks</td>
-            <td>$34.99</td>
-            <td>$5.83</td>
-            <td>$12.95</td>
-        </tr>
-        <tr>
-            <td>7 weeks</td>
-            <td>$39.99</td>
-            <td>$5.71</td>
-            <td>$15.94</td>
-        </tr>
-        <tr>
-            <td>8 weeks</td>
-            <td>$45.00</td>
-            <td>$5.63</td>
-            <td>$18.92</td>
-        </tr>
-        <tr>
-            <td>9 weeks</td>
-            <td>$49.00</td>
-            <td>$5.44</td>
-            <td>$22.91</td>
-        </tr>
-        <tr>
-            <td>10 weeks</td>
-            <td>$53.00</td>
-            <td>$5.30</td>
-            <td>$26.90</td>
-        </tr>
-        <tr>
-            <td>11 weeks</td>
-            <td>$57.00</td>
-            <td>$5.18</td>
-            <td>$30.89</td>
-        </tr>
-        <tr>
-            <td>12 weeks</td>
-            <td>$59.99</td>
-            <td>$5.00</td>
-            <td>$35.89</td>
-        </tr>
-    </table>
+    <div class="container">
+        <h1>Flexible Pricing: Pay What You Want, When You Want</h1>
+        <p class="description">
+            Choose your preferred duration and pay only for what you need. You can always extend your access later,
+            paying week by week or selecting a longer duration for greater savings.
+        </p>
+        <table class="pricing-table" id="pricingTable">
+            <thead>
+                <tr>
+                    <th>Duration</th>
+                    <th>Total Price</th>
+                    <th>Weekly Cost</th>
+                    <th>You Save</th>
+                    <th>Choose Plan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be dynamically populated by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const pricingData = [
+            { duration: 1, price: 7.99 },
+            { duration: 2, price: 14.99 },
+            { duration: 3, price: 19.99 },
+            { duration: 4, price: 24.99 },
+            { duration: 5, price: 29.99 },
+            { duration: 6, price: 34.99 },
+            { duration: 7, price: 39.99 },
+            { duration: 8, price: 45.00 },
+            { duration: 9, price: 49.00 },
+            { duration: 10, price: 53.00 },
+            { duration: 11, price: 57.00 },
+            { duration: 12, price: 59.99 }
+        ];
+
+        const tableBody = document.querySelector('#pricingTable tbody');
+
+        function createPricingRow(data, isBestValue) {
+            const row = document.createElement('tr');
+            if (isBestValue) row.classList.add('best-value');
+            
+            const weeklyPrice = (data.price / data.duration).toFixed(2);
+            const savings = ((7.99 * data.duration) - data.price).toFixed(2);
+
+            row.innerHTML = `
+                <td>${data.duration} week${data.duration > 1 ? 's' : ''}</td>
+                <td>$${data.price.toFixed(2)}</td>
+                <td>$${weeklyPrice}</td>
+                <td class="savings">$${savings}</td>
+                <td><a href="#" class="btn" onclick="selectPlan(${data.duration}, ${data.price})">Select</a></td>
+            `;
+
+            return row;
+        }
+
+        function populateTable() {
+            pricingData.forEach((data, index) => {
+                const isBestValue = index === pricingData.length - 1;
+                const row = createPricingRow(data, isBestValue);
+                tableBody.appendChild(row);
+            });
+        }
+
+        function selectPlan(duration, price) {
+            alert(`You've selected the ${duration}-week plan for $${price.toFixed(2)}. Proceed to payment.`);
+            // Here you would typically redirect to a payment page or open a payment modal
+        }
+
+        // Initialize table
+        populateTable();
+    </script>
 </body>
 </html>
