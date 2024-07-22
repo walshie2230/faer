@@ -482,6 +482,27 @@ function calculateMacros() {
             </div>
         </div>
 
+      <div class="section macro-calculator">
+    <h2>🧮 Macro Calculator</h2>
+    <p>Calculate your personalized macros based on your goals:</p>
+    <div class="calculator-grid">
+        <div class="input-group">
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" required>
+        </div>
+        <div class="input-group">
+            <label for="goal">Goal:</label>
+            <select id="goal">
+                <option value="cutting">Cutting</option>
+                <option value="bulking">Bulking</option>
+                <option value="maintaining">Maintaining</option>
+            </select>
+        </div>
+        <button onclick="calculateMacros()" class="calculate-btn">Calculate Macros</button>
+    </div>
+    <div id="results" class="results-grid"></div>
+</div>
+        
         <div class="program-overview">
             <h2>Unlock Your Warrior Physique</h2>
             <div class="feature-grid">
@@ -512,27 +533,6 @@ function calculateMacros() {
             </div>
             <p class="program-tagline">Transform your physique with science-backed methods.</p>
         </div>
-
-        <div class="section macro-calculator">
-    <h2>🧮 Macro Calculator</h2>
-    <p>Calculate your personalized macros based on your goals:</p>
-    <div class="calculator-grid">
-        <div class="input-group">
-            <label for="weight">Weight (kg):</label>
-            <input type="number" id="weight" required>
-        </div>
-        <div class="input-group">
-            <label for="goal">Goal:</label>
-            <select id="goal">
-                <option value="cutting">Cutting</option>
-                <option value="bulking">Bulking</option>
-                <option value="maintaining">Maintaining</option>
-            </select>
-        </div>
-        <button onclick="calculateMacros()" class="calculate-btn">Calculate Macros</button>
-    </div>
-    <div id="results" class="results-grid"></div>
-</div>
 
         <div class="content-wrapper">
             <section class="section diet-plan">
