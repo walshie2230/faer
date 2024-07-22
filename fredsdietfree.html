@@ -102,12 +102,13 @@
         }
 
         .paywall {
-            position: fixed;
-            bottom: 0;
+            position: absolute;
+            top: 800px; /* Adjusted to accommodate new content */
             left: 0;
             right: 0;
+            bottom: 0;
             background: linear-gradient(transparent, #fff);
-            display: none;
+            display: flex;
             flex-direction: column;
             justify-content: flex-end;
             align-items: center;
@@ -129,6 +130,11 @@
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
+        }
+
+        .content-wrapper {
+            max-height: 800px; /* Adjusted to accommodate new content */
+            overflow: hidden;
         }
 
         .program-overview {
@@ -181,27 +187,6 @@
             font-weight: bold;
             color: var(--primary-color);
         }
-       .free-content {
-            background-color: #e8f4fd;
-            border-left: 5px solid var(--primary-color);
-            padding: 1rem;
-            margin: 2rem 0;
-            border-radius: 0 10px 10px 0;
-        }
-
-        .free-content h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .free-content p {
-            margin-bottom: 0.5rem;
-        }
-
-        .free-content .meal {
-            background-color: white;
-            margin-bottom: 1rem;
-        }
     </style>
     <script>
         // Disable right-click
@@ -209,17 +194,18 @@
             e.preventDefault();
         });
 
-        // Show paywall on scroll
-        window.addEventListener('scroll', function() {
-            var scrollPosition = window.pageYOffset;
-            var paywall = document.querySelector('.paywall');
-            var paywallTriggerPosition = 1000; // Adjust this value as needed
+        // Paywall functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const paywall = document.querySelector('.paywall');
+            const contentWrapper = document.querySelector('.content-wrapper');
 
-            if (scrollPosition > paywallTriggerPosition) {
-                paywall.style.display = 'flex';
-            } else {
+            contentWrapper.style.maxHeight = '800px';
+            paywall.style.display = 'flex';
+
+            document.querySelector('.pay-button').addEventListener('click', function() {
                 paywall.style.display = 'none';
-            }
+                contentWrapper.style.maxHeight = 'none';
+            });
         });
     </script>
 </head>
@@ -229,28 +215,6 @@
             <h1>FAER Dojo Warrior Shredding Program</h1>
             <p>Transform Your Physique, Optimize Your Life</p>
         </header>
-      
-       <div class="free-content">
-            <h3>Free Sample: Daily Meal Plan (180 lb individual)</h3>
-            <p>Get a taste of our precision nutrition approach with this sample daily meal plan:</p>
-            <div class="meal">
-                <h4>Morning Kickstart</h4>
-                <ul>
-                    <li>1-2 cups black coffee</li>
-                    <li>Hydrate with water</li>
-                </ul>
-            </div>
-            <div class="meal">
-                <h4>Midday Fuel (85g protein, 65g carbs, 30g fat)</h4>
-                <ul>
-                    <li>400g lean protein source</li>
-                    <li>300g complex carbs (potatoes/sweet potatoes) or 90g rice/pasta</li>
-                    <li>1 tsp healthy oil</li>
-                    <li>Generous serving of fibrous vegetables</li>
-                </ul>
-            </div>
-            <p>This is just a glimpse of the comprehensive meal plans included in the full program. Unlock the complete FAER Dojo Warrior Shredding Program for personalized nutrition strategies and more!</p>
-        </div>
 
         <div class="program-overview">
             <h2>Unlock Your Warrior Physique</h2>
@@ -283,132 +247,72 @@
             <p class="program-tagline">Transform your physique with science-backed methods.</p>
         </div>
 
-        <section class="section diet-plan">
-            <h2>🍽️ Precision Nutrition Plan</h2>
-            <h3>Meal Templates</h3>
-            <div class="meal">
-                <h4>High-Protein Dairy Boost</h4>
-                <ul>
-                    <li>400g 2% cottage cheese or Greek yogurt</li>
-                    <li>1 medium apple</li>
-                </ul>
-            </div>
-            <div class="meal">
-                <h4>Power-Packed Eggs</h4>
-                <ul>
-                    <li>2 whole eggs + 1 cup egg whites (scrambled)</li>
-                    <li>1 banana or bowl of fresh strawberries</li>
-                </ul>
-            </div>
-            <div class="meal">
-                <h4>Quick Protein Shake</h4>
-                <ul>
-                    <li>40g whey/casein protein powder</li>
-                    <li>1 medium banana</li>
-                    <li>20g almonds</li>
-                </ul>
-            </div>
-            <h3>Daily Meal Plan (180 lb individual)</h3>
-            <div class="meal">
-                <h4>Morning Kickstart</h4>
-                <ul>
-                    <li>1-2 cups black coffee</li>
-                    <li>Hydrate with water</li>
-                </ul>
-            </div>
-            <div class="meal">
-                <h4>Midday Fuel (85g protein, 65g carbs, 30g fat)</h4>
-                <ul>
-                    <li>400g lean protein source</li>
-                    <li>300g complex carbs (potatoes/sweet potatoes) or 90g rice/pasta</li>
-                    <li>1 tsp healthy oil</li>
-                    <li>Generous serving of fibrous vegetables</li>
-                </ul>
-            </div>
-            <div class="meal">
-                <h4>Evening Nourishment (85g protein, 65g carbs, 30g fat)</h4>
-                <ul>
-                    <li>400g very lean protein</li>
-                    <li>300g complex carbs or 90g rice/pasta</li>
-                    <li>4-6 tsp healthy fats</li>
-                    <li>Abundant fibrous vegetables</li>
-                </ul>
-            </div>
-            <div class="meal">
-                <h4>Night-time Recovery (40g protein, 30g carbs, 10g fat)</h4>
-                <ul>
-                    <li>400g 2% cottage cheese</li>
-                    <li>Fresh bowl of strawberries</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section refeed-plan">
-            <h2>🔥 Strategic Refeed Protocol</h2>
-            <p>Refeeds are your secret weapon against the metabolic slowdown caused by calorie restriction. By strategically increasing calories, especially from carbohydrates, we can boost leptin levels, reinvigorate your metabolism, and support muscle growth.</p>
-            <h3>Refeed Benefits</h3>
-            <ul>
-                <li>Leptin level optimization</li>
-                <li>Enhanced anabolic environment</li>
-                <li>Improved muscle preservation and growth</li>
-            </ul>
-            <h3>Refeed Blueprint</h3>
-            <ul>
-                <li>Frequency: Twice weekly (e.g., Monday and Friday)</li>
-                <li>Calorie target: <span class="highlight">16 calories per pound of bodyweight</span></li>
-                <li>Macronutrient split:
+        <div class="content-wrapper">
+            <section class="section diet-plan">
+                <h2>🍽️ Precision Nutrition Plan</h2>
+                <h3>Meal Templates</h3>
+                <div class="meal">
+                    <h4>High-Protein Dairy Boost</h4>
                     <ul>
-                        <li>Protein: 30% of total calories</li>
-                        <li>Fat: 25% of total calories</li>
-                        <li>Carbs: 45% of total calories</li>
+                        <li>400g 2% cottage cheese or Greek yogurt</li>
+                        <li>1 medium apple</li>
                     </ul>
-                </li>
-            </ul>
-            <h3>Refeed Day Sample (180 lb individual)</h3>
-            <div class="meal">
-                <h4>Lunch Power-Up (85g protein, 130g carbs, 35g fat)</h4>
-                <ul>
-                    <li>400g lean protein</li>
-                    <li>650g complex carbs or 180g rice/pasta</li>
-                    <li>2 tsp healthy fats</li>
-                    <li>Fibrous vegetables</li>
-                </ul>
-            </div>
-            <div class="meal">
-                <h4>Dinner Delight (85g protein, 130g carbs, 30g fat)</h4>
-                <ul>
-                    <li>400g very lean protein</li>
-                    <li>650g complex carbs or 180g rice/pasta</li>
-                    <li>5-6 tsp healthy fats</li>
-                    <li>Abundant fibrous vegetables</li>
-                </ul>
-            </div>
-            <div class="meal">
-                <h4>Evening Boost (40g protein, 65g carbs, 15g fat)</h4>
-                <ul>
-                    <li>3 whole eggs + 1 cup egg whites</li>
-                    <li>1 banana + mixed berries</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section weekly-schedule">
-            <h2>📅 Weekly Calorie Cycling</h2>
-            <ul>
-                <li>Monday: <span class="highlight">High (16 cals/lb)</span></li>
-                <li>Tuesday: Low (12 cals/lb)</li>
-                <li>Wednesday: Low (12 cals/lb)</li>
-                <li>Thursday: Low (12 cals/lb)</li>
-                <li>Friday: <span class="highlight">High (16 cals/lb)</span></li>
-                <li>Saturday: Medium (14 cals/lb)</li>
-                <li>Sunday: Low (12 cals/lb)</li>
-            </ul>
-        </section>
-
+                </div>
+                <div class="meal">
+                    <h4>Power-Packed Eggs</h4>
+                    <ul>
+                        <li>2 whole eggs + 1 cup egg whites (scrambled)</li>
+                        <li>1 banana or bowl of fresh strawberries</li>
+                    </ul>
+                </div>
+                <div class="meal">
+                    <h4>Quick Protein Shake</h4>
+                    <ul>
+                        <li>40g whey/casein protein powder</li>
+                        <li>1 medium banana</li>
+                        <li>20g almonds</li>
+                    </ul>
+                </div>
+                <h3>Daily Meal Plan (180 lb individual)</h3>
+                <div class="meal">
+                    <h4>Morning Kickstart</h4>
+                    <ul>
+                        <li>1-2 cups black coffee</li>
+                        <li>Hydrate with water</li>
+                    </ul>
+                </div>
+                <div class="meal">
+                    <h4>Midday Fuel (85g protein, 65g carbs, 30g fat)</h4>
+                    <ul>
+                        <li>400g lean protein source</li>
+                        <li>300g complex carbs (potatoes/sweet potatoes) or 90g rice/pasta</li>
+                        <li>1 tsp healthy oil</li>
+                        <li>Mixed greens with vinegar or lemon juice</li>
+                    </ul>
+                </div>
+                <div class="meal">
+                    <h4>Evening Refuel (50g protein, 50g carbs, 10g fat)</h4>
+                    <ul>
+                        <li>250g lean protein source</li>
+                        <li>300g complex carbs (potatoes/sweet potatoes) or 60g rice/pasta</li>
+                        <li>Mixed greens with vinegar or lemon juice</li>
+                    </ul>
+                </div>
+                <div class="meal">
+                    <h4>Pre-Bed Recharge</h4>
+                    <ul>
+                        <li>300g 2% cottage cheese or Greek yogurt</li>
+                        <li>1 apple or serving of berries</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        
         <div class="paywall">
             <div class="paywall-content">
-                <p>This program offers exceptional value with premium access. Unlock the full program for a one-time fee of $5.</p>
-                <a class="pay-button" href="https://buy.stripe.com/6oE7wjaN77cMLdWM28g">Unlock Now</a>
+                <h2>Access the Full Program</h2>
+                <p>Unlock the full program for a one-time fee of $5</p>
+                <a href="https://buy.stripe.com/6oE7wjaN7cMLdWM28g" class="pay-button">Unlovk Now</a>
             </div>
         </div>
     </div>
