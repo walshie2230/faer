@@ -9,7 +9,6 @@
 <body>
     <div class="container">
         <div class="carousel">
-            <!-- Day 1 -->
             <div class="day" id="day1">
                 <div class="content">
                     <div class="content-inner front">
@@ -19,81 +18,85 @@
                     </div>
                     <div class="content-inner back">
                         <button class="flip-back-button">Flip Back</button>
-                        <!-- Day 1 Detailed Content -->
-                        <h2>WEEK 10 - Day 1: Upper Body Strength</h2>
-                        <p class="objective"><strong>Objective:</strong> Focus on enhancing upper body strength through intensive routines.</p>
-                        <h3>Skill Training: Chin-up & Superman Push-up</h3>
-                        <table>
-                            <tr>
-                                <th>Exercise</th>
-                                <th>Reps/Duration</th>
-                                <th>Sets</th>
-                                <th>Rest</th>
-                            </tr>
-                            <tr>
-                                <td>Chin-up</td>
-                                <td>Max reps for 100sec</td>
-                                <td>1</td>
-                                <td>1min</td>
-                            </tr>
-                            <tr>
-                                <td>Superman Push-up</td>
-                                <td>Max reps for 100sec</td>
-                                <td>1</td>
-                                <td>1min</td>
-                            </tr>
-                        </table>
-                        <h3>Routine: Pull-up & Push-up Mixer</h3>
-                        <button type="button" class="collapsible">Pull-up & Push-up Mixer</button>
-                        <div class="content-collapsible">
-                            <table>
-                                <tr>
-                                    <th>Exercise</th>
-                                    <th>Reps/Duration</th>
-                                    <th>Sets</th>
-                                    <th>Rest</th>
-                                </tr>
-                                <tr>
-                                    <td>1 Pull-Up</td>
-                                    <td>10 Push-Ups</td>
-                                    <td>1</td>
-                                    <td>1min</td>
-                                </tr>
-                                <tr>
-                                    <td>2 Pull-Ups</td>
-                                    <td>10 Push-Ups</td>
-                                    <td>1</td>
-                                    <td>1min</td>
-                                </tr>
-                                <!-- Continue as needed -->
-                                <tr>
-                                    <td>All the way up until failure</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>20 Pull-ups</td>
-                                    <td>20 Tricep Dips</td>
-                                    <td>4</td>
-                                    <td>1min</td>
-                                </tr>
-                                <tr>
-                                    <td>20 Archer Push-ups</td>
-                                    <td></td>
-                                    <td>4</td>
-                                    <td>1min</td>
-                                </tr>
-                            </table>
+                        <div class="exercise-carousel-container">
+                            <div class="exercise-carousel">
+                                <div class="exercise-block">
+                                    <h3>Skill Training: Chin-up & Superman Push-up</h3>
+                                    <table>
+                                        <tr>
+                                            <th>Exercise</th>
+                                            <th>Reps/Duration</th>
+                                            <th>Sets</th>
+                                            <th>Rest</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Chin-up</td>
+                                            <td>Max reps for 100sec</td>
+                                            <td>1</td>
+                                            <td>1min</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Superman Push-up</td>
+                                            <td>Max reps for 100sec</td>
+                                            <td>1</td>
+                                            <td>1min</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="exercise-block">
+                                    <h3>Routine: Pull-up & Push-up Mixer</h3>
+                                    <table>
+                                        <tr>
+                                            <th>Exercise</th>
+                                            <th>Reps/Duration</th>
+                                            <th>Sets</th>
+                                            <th>Rest</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1 Pull-Up</td>
+                                            <td>10 Push-Ups</td>
+                                            <td>1</td>
+                                            <td>1min</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2 Pull-Ups</td>
+                                            <td>10 Push-Ups</td>
+                                            <td>1</td>
+                                            <td>1min</td>
+                                        </tr>
+                                        <tr>
+                                            <td>All the way up until failure</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>20 Pull-ups</td>
+                                            <td>20 Tricep Dips</td>
+                                            <td>4</td>
+                                            <td>1min</td>
+                                        </tr>
+                                        <tr>
+                                            <td>20 Archer Push-ups</td>
+                                            <td></td>
+                                            <td>4</td>
+                                            <td>1min</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="exercise-carousel-controls">
+                                <button class="exercise-carousel-control" id="prev-exercise">&lt;</button>
+                                <button class="exercise-carousel-control" id="next-exercise">&gt;</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Repeat .day div for other days with respective content -->
         </div>
         <div class="carousel-controls">
-            <button class="carousel-control" id="prev">&lt;</button>
-            <button class="carousel-control" id="next">&gt;</button>
+            <button class="carousel-control" id="prev-day">&lt;</button>
+            <button class="carousel-control" id="next-day">&gt;</button>
         </div>
     </div>
     <script src="scripts.js"></script>
