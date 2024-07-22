@@ -1,37 +1,24 @@
 document.addEventListener('DOMContentLoaded', function() {
     const carousel = document.querySelector('.carousel');
     const days = document.querySelectorAll('.day');
-    const prev = document.getElementById('prev');
-    const next = document.getElementById('next');
-    let currentIndex = 0;
+    const prevDay = document.getElementById('prev-day');
+    const nextDay = document.getElementById('next-day');
+    let currentIndexDay = 0;
 
-    function updateCarousel() {
-        const offset = -currentIndex * 100;
+    function updateCarouselDay() {
+        const offset = -currentIndexDay * 100;
         carousel.style.transform = `translateX(${offset}%)`;
     }
 
-    prev.addEventListener('click', () => {
-        currentIndex = (currentIndex > 0) ? currentIndex - 1 : days.length - 1;
-        updateCarousel();
+    prevDay.addEventListener('click', () => {
+        currentIndexDay = (currentIndexDay > 0) ? currentIndexDay - 1 : days.length - 1;
+        updateCarouselDay();
     });
 
-    next.addEventListener('click', () => {
-        currentIndex = (currentIndex < days.length - 1) ? currentIndex + 1 : 0;
-        updateCarousel();
+    nextDay.addEventListener('click', () => {
+        currentIndexDay = (currentIndexDay < days.length - 1) ? currentIndexDay + 1 : 0;
+        updateCarouselDay();
     });
-
-    const coll = document.getElementsByClassName("collapsible");
-    for (let i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            const content = this.nextElementSibling;
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-            }
-        });
-    }
 
     const flipButtons = document.querySelectorAll('.flip-button');
     const flipBackButtons = document.querySelectorAll('.flip-back-button');
@@ -49,4 +36,33 @@ document.addEventListener('DOMContentLoaded', function() {
             content.classList.remove('flipped');
         });
     });
+
+    const exerciseCarousels = document.querySelectorAll('.exercise-carousel');
+    exerciseCarousels.forEach(exerciseCarousel => {
+        const exercises = exerciseCarousel.querySelectorAll('.exercise-block');
+        const prevExercise = exerciseCarousel.parentElement.querySelector('#prev-exercise');
+        const nextExercise = exerciseCarousel.parentElement.querySelector('#next-exercise');
+        let currentIndexExercise = 0;
+
+        function updateCarouselExercise() {
+            const offset = -currentIndexExercise * 100;
+            exerciseCarousel.style.transform = `translateX(${offset}%)`;
+        }
+
+        prevExercise.addEventListener('click', () => {
+            currentIndexExercise = (currentIndexExercise > 0) ? currentIndexExercise - 1 : exercises.length - 1;
+            updateCarouselExercise();
+        });
+
+        nextExercise.addEventListener('click', () => {
+            currentIndexExercise = (currentIndexExercise < exercises.length - 1) ? currentIndexExercise + 1 : 0;
+            updateCarouselExercise();
+        });
+
+        // Initialize the exercise carousel
+        updateCarouselExercise();
+    });
+
+    // Initialize the day carousel
+    updateCarouselDay();
 });
