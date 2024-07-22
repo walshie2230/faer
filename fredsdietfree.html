@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAER Dojo Warrior Shredding Program</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
 
@@ -103,7 +104,7 @@
 
         .paywall {
             position: absolute;
-            top: 800px; /* Adjusted to accommodate new content */
+            top: 800px;
             left: 0;
             right: 0;
             bottom: 0;
@@ -133,7 +134,7 @@
         }
 
         .content-wrapper {
-            max-height: 800px; /* Adjusted to accommodate new content */
+            max-height: 800px;
             overflow: hidden;
         }
 
@@ -187,6 +188,151 @@
             font-weight: bold;
             color: var(--primary-color);
         }
+
+        .free-meal-plan {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .free-meal-plan h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .meal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .meal-box {
+            background: #fff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .meal-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .meal-box h4 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .meal-box i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .meal-details {
+            display: none;
+            text-align: left;
+        }
+
+        .meal-details h5 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .meal-details ul {
+            padding-left: 1.5rem;
+        }
+
+        .meal-details li {
+            margin-bottom: 0.5rem;
+        }
+
+        .meal-box.active .meal-details {
+            display: block;
+        }
+
+        .meal-box.active i {
+            display: none;
+        }
+
+.macro-calculator {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.input-group input,
+.input-group select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.calculate-btn {
+    grid-column: 1 / -1;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.calculate-btn:hover {
+    background-color: #2980b9;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.macro-result {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.macro-result h4 {
+    margin: 0;
+    color: var(--secondary-color);
+}
+
+.macro-result p {
+    margin: 0.5rem 0 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
     </style>
     <script>
         // Disable right-click
@@ -206,7 +352,62 @@
                 paywall.style.display = 'none';
                 contentWrapper.style.maxHeight = 'none';
             });
+
+            const mealBoxes = document.querySelectorAll('.meal-box');
+
+            mealBoxes.forEach(box => {
+                box.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                });
+            });
         });
+function calculateMacros() {
+    const weight = parseFloat(document.getElementById('weight').value);
+    const goal = document.getElementById('goal').value;
+    let protein, carbs, fat, calories;
+
+    switch(goal) {
+        case 'cutting':
+            protein = weight * 2.5;
+            fat = weight;
+            carbs = weight * 2;
+            calories = (protein * 4) + (carbs * 4) + (fat * 9);
+            break;
+        case 'bulking':
+            protein = weight * 2;
+            fat = weight * 0.8;
+            carbs = weight * 5;
+            calories = weight * 16;
+            break;
+        case 'maintaining':
+            protein = weight * 2;
+            fat = weight * 1.25;
+            carbs = weight * 3;
+            calories = (protein * 4) + (carbs * 4) + (fat * 9);
+            break;
+    }
+
+    const results = `
+        <div class="macro-result">
+            <h4>Calories</h4>
+            <p>${Math.round(calories)} kcal</p>
+        </div>
+        <div class="macro-result">
+            <h4>Protein</h4>
+            <p>${Math.round(protein)}g</p>
+        </div>
+        <div class="macro-result">
+            <h4>Carbs</h4>
+            <p>${Math.round(carbs)}g</p>
+        </div>
+        <div class="macro-result">
+            <h4>Fat</h4>
+            <p>${Math.round(fat)}g</p>
+        </div>
+    `;
+
+    document.getElementById('results').innerHTML = results;
+}
     </script>
 </head>
 <body>
@@ -215,6 +416,92 @@
             <h1>FAER Dojo Warrior Shredding Program</h1>
             <p>Transform Your Physique, Optimize Your Life</p>
         </header>
+
+<div class="section macro-calculator">
+    <h2>🧮 Macro Calculator</h2>
+    <p>Calculate your personalized macros based on your goals:</p>
+    <div class="calculator-grid">
+        <div class="input-group">
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" required>
+        </div>
+        <div class="input-group">
+            <label for="goal">Goal:</label>
+            <select id="goal">
+                <option value="cutting">Cutting</option>
+                <option value="bulking">Bulking</option>
+                <option value="maintaining">Maintaining</option>
+            </select>
+        </div>
+        <button onclick="calculateMacros()" class="calculate-btn">Calculate Macros</button>
+    </div>
+    <div id="results" class="results-grid"></div>
+</div>
+
+        <div class="section free-meal-plan">
+            <h2>🍽️ Free Daily Meal Plan Template</h2>
+            <p>Start your transformation journey with this sample meal plan:</p>
+            <div class="meal-grid">
+                <div class="meal-box" data-meal="breakfast">
+                    <h4>Breakfast</h4>
+                    <i class="fas fa-egg"></i>
+                    <div class="meal-details">
+                        <h5>Power-Packed Eggs</h5>
+                        <ul>
+                            <li>2 whole eggs + 1 cup egg whites (scrambled)</li>
+                            <li>1 banana or bowl of fresh strawberries</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="meal-box" data-meal="snack1">
+                    <h4>Mid-Morning Snack</h4>
+                    <i class="fas fa-blender"></i>
+                    <div class="meal-details">
+                        <h5>Quick Protein Shake</h5>
+                        <ul>
+                            <li>40g whey/casein protein powder</li>
+                            <li>1 medium banana</li>
+                            <li>20g almonds</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="meal-box" data-meal="lunch">
+                    <h4>Lunch</h4>
+                    <i class="fas fa-drumstick-bite"></i>
+                    <div class="meal-details">
+                        <h5>Lean Protein with Complex Carbs</h5>
+                        <ul>
+                            <li>150g grilled chicken breast</li>
+                            <li>1 cup brown rice or quinoa</li>
+                            <li>1 cup mixed vegetables</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="meal-box" data-meal="snack2">
+                    <h4>Afternoon Snack</h4>
+                    <i class="fas fa-cheese"></i>
+                    <div class="meal-details">
+                        <h5>High-Protein Dairy Boost</h5>
+                        <ul>
+                            <li>250g 2% cottage cheese or Greek yogurt</li>
+                            <li>1 medium apple</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="meal-box" data-meal="dinner">
+                    <h4>Dinner</h4>
+                    <i class="fas fa-fish"></i>
+                    <div class="meal-details">
+                        <h5>Balanced Nutrition</h5>
+                        <ul>
+                            <li>150g lean beef or fish</li>
+                            <li>1 medium sweet potato</li>
+                            <li>2 cups leafy greens with olive oil dressing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="program-overview">
             <h2>Unlock Your Warrior Physique</h2>
@@ -296,7 +583,7 @@
                         <li>250g lean protein source</li>
                         <li>300g complex carbs (potatoes/sweet potatoes) or 60g rice/pasta</li>
                         <li>Mixed greens with vinegar or lemon juice</li>
-                    </ul>
+</ul>
                 </div>
                 <div class="meal">
                     <h4>Pre-Bed Recharge</h4>
