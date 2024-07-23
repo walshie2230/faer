@@ -117,32 +117,55 @@ table td {
 }
 
 @media (max-width: 768px) {
+    body {
+        align-items: flex-start;
+        padding: 20px 10px;
+    }
+
     .grid-container {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(4, 1fr);
         aspect-ratio: auto;
         height: auto;
+        gap: 20px;
     }
 
     .day {
-        height: 300px;
+        height: 200px;
     }
 
     .day.expanded {
         height: auto;
-        min-height: 100vh;
+        min-height: calc(100vh - 40px);
     }
 
     .content-inner {
         padding: 15px;
+        font-size: 14px;
+    }
+
+    .content-inner.front h2 {
+        font-size: 18px;
+    }
+
+    .content-inner.front p {
+        font-size: 14px;
+    }
+
+    .content-inner.back h3 {
+        font-size: 16px;
     }
 
     table {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     table th,
     table td {
         padding: 5px;
+    }
+
+    .close-button {
+        font-size: 16px;
     }
 }
