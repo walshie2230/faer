@@ -11,3 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+        // Disable right-click on the entire page
+        document.oncontextmenu = function() {
+            return false;
+        };
