@@ -66,3 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize the day carousel
     updateCarouselDay();
 });
+
+    // Disable right-click on the entire document
+    document.oncontextmenu = function () {
+        return false;
+    };
