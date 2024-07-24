@@ -2,689 +2,268 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.5">
-    <title>Comprehensive Calisthenics Workout Program</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2ecc71;
-            --accent-color: #e74c3c;
-            --bg-color: #ecf0f1;
-            --text-color: #34495e;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 40px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 10px,
-                rgba(255,255,255,0.1) 10px,
-                rgba(255,255,255,0.1) 20px
-            );
-            animation: move-background 20s linear infinite;
-        }
-
-        @keyframes move-background {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50%, 50%); }
-        }
-
-        h1 {
-            font-size: 3em;
-            margin: 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        .phase {
-            background-color: white;
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .phase::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-        }
-
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
-
-        .objective {
-            font-style: italic;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0 10px;
-            margin-bottom: 20px;
-        }
-
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border: none;
-        }
-
-        th {
-            background-color: var(--primary-color);
-            color: white;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        tr {
-            background-color: #f8f9fa;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease-in-out;
-        }
-
-        tr:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .tooltip {
-            position: relative;
-            display: inline-block;
-            cursor: help;
-            border-bottom: 1px dotted var(--primary-color);
-        }
-
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 200px;
-            background-color: var(--text-color);
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -100px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .difficulty {
-            display: inline-block;
-            padding: 3px 8px;
-            border-radius: 3px;
-            font-size: 0.8em;
-            font-weight: bold;
-            margin-left: 10px;
-        }
-
-        .beginner { background-color: #2ecc71; color: white; }
-        .intermediate { background-color: #f39c12; color: white; }
-        .advanced { background-color: #e74c3c; color: white; }
-
-        .muscle-group {
-            font-size: 0.8em;
-            color: var(--accent-color);
-            margin-top: 5px;
-        }
-
-        .criteria {
-            background-color: var(--accent-color);
-            color: white;
-            padding: 30px;
-            border-radius: 10px;
-            margin-top: 40px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .criteria::after {
-            content: '';
-            position: absolute;
-            bottom: -50px;
-            right: -50px;
-            width: 100px;
-            height: 100px;
-            background-color: rgba(255,255,255,0.1);
-            border-radius: 50%;
-        }
-
-        .criteria h2 {
-            color: white;
-            border-bottom: 2px solid rgba(255,255,255,0.3);
-        }
-
-        .criteria ul {
-            padding-left: 20px;
-            list-style-type: none;
-        }
-
-        .criteria li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .criteria li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--secondary-color);
-            font-weight: bold;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            padding: 20px;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 10px;
-        }
-        
-        @media screen and (max-width: 600px) {
-  body {
-    font-size: 14px;
-  }
-
-  .container {
-    width: 100%;
-    padding: 10px;
-  }
-
-  .phase {
-    padding: 10px;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  h2 {
-    font-size: 20px;
-  }
-
-  h3 {
-    font-size: 18px;
-  }
-
-  table {
-    font-size: 12px;
-    width: 100%;
-  }
-
-  th, td {
-    padding: 5px;
-  }
-
-  .difficulty {
-    font-size: 10px;
-    padding: 2px 4px;
-  }
-
-  .muscle-group {
-    font-size: 10px;
-  }
-}
-    </style>
-        <script>
-        document.addEventListener('contextmenu', function(event) {
-            event.preventDefault();
-        });
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 10 Workout Plan</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>20 Level Comprehensive Calisthenics Workout Program (Level 1 - Free Trial)</h1>
-    </header>
 
     <div class="container">
-        <div class="phase">
-            <h2>LEVEL 1 - Foundation Phase (4-6 weeks)</h2>
-            <p class="objective"><strong>Objective:</strong> Build baseline strength and endurance with proper form.</p>
-
-            <h3>Week 1-6 Schedule</h3>
-            <table>
-                <tr>
-                    <th>Day</th>
-                    <th>Workout</th>
-                </tr>
-                <tr>
-                    <td>Day 1</td>
-                    <td>Full Body Strength</td>
-                </tr>
-                <tr>
-                    <td>Day 2</td>
-                    <td>Rest</td>
-                </tr>
-                <tr>
-                    <td>Day 3</td>
-                    <td>Pull & Push Focus</td>
-                </tr>
-                <tr>
-                    <td>Day 4</td>
-                    <td>Rest</td>
-                </tr>
-                <tr>
-                    <td>Day 5</td>
-                    <td>Full Body & Core</td>
-                </tr>
-                <tr>
-                    <td>Day 6</td>
-                    <td>Rest</td>
-                </tr>
-                <tr>
-                    <td>Day 7</td>
-                    <td>Rest</td>
-                </tr>
-            </table>
-
-            <h3>Day 1: Full Body Strength</h3>
-            <table>
-                <tr>
-                    <th>Exercise</th>
-                    <th>Reps</th>
-                    <th>Sets</th>
-                    <th>Rest Time</th>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Push-ups on knees
-                            <span class="tooltiptext">A modified version of push-ups that reduces the load, making it easier for beginners.</span>
-                        </span>
-                        <span class="difficulty beginner">Beginner</span>
-                        <div class="muscle-group">Primary: Chest, Triceps, Shoulders</div>
-                    </td>
-                    <td>10</td>
-                    <td>3</td>
-                    <td>60-90s</td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Australian pull-ups
-                            <span class="tooltiptext">A horizontal pulling exercise that serves as a progression towards full pull-ups.</span>
-                        </span>
-                        <span class="difficulty intermediate">Intermediate</span>
-                        <div class="muscle-group">Primary: Back, Biceps</div>
-                    </td>
-                    <td>8</td>
-                    <td>3</td>
-                    <td>60-90s</td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Push-ups negatives
-                            <span class="tooltiptext">Lowering slowly from the top position of a push-up to build strength.</span>
-                        </span>
-                        <span class="difficulty beginner">Beginner</span>
-                        <div class="muscle-group">Primary: Chest, Triceps, Shoulders</div>
-                    </td>
-                    <td>6</td>
-                    <td>3</td>
-                    <td>60-90s</td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Australian chin-ups
-                            <span class="tooltiptext">Similar to Australian pull-ups but with palms facing you, emphasizing biceps more.</span>
-                        </span>
-                        <span class="difficulty intermediate">Intermediate</span>
-                        <div class="muscle-group">Primary: Back, Biceps</div>
-                    </td>
-                    <td>8</td>
-                    <td>3</td>
-                    <td>60-90s</td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Bench dips
-                            <span class="tooltiptext">Tricep dips performed using a bench or elevated surface.</span>
-                        </span>
-                        <span class="difficulty beginner">Beginner</span>
-                        <div class="muscle-group">Primary: Triceps, Chest, Shoulders</div>
-                    </td>
-                    <td>10</td>
-                    <td>3</td>
-                    <td>60-90s</td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Jump pull-ups
-                            <span class="tooltiptext">Using momentum to jump into a pull-up, focusing on a slow negative.</span>
-                        </span>
-                        <span class="difficulty intermediate">Intermediate</span>
-                        <div class="muscle-group">Primary: Back, Biceps</div>
-                    </td>
-                    <td>6</td>
-                    <td>3</td>
-                    <td>60-90s</td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Pike push-ups negatives
-                            <span class="tooltiptext">Lowering slowly from a pike position, targeting shoulders.</span>
-                        </span>
-                        <span class="difficulty intermediate">Intermediate</span>
-                        <div class="muscle-group">Primary: Shoulders, Triceps</div>
-                    </td>
-                    <td>8</td>
-                    <td>3</td>
-                    <td>60-90s</td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Bent knees leg raises
-                            <span class="tooltiptext">A core exercise where you raise your bent legs while lying on your back.</span>
-                        </span>
-                        <span class="difficulty beginner">Beginner</span>
-                        <div class="muscle-group">Primary: Lower Abs</div>
-                    </td>
-                    <td>8</td>
-                    <td>4</td>
-                    <td>60-90s</td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Squats
-                            <span class="tooltiptext">A fundamental lower body exercise targeting multiple muscle groups.</span>
-                        </span>
-                        <span class="difficulty beginner">Beginner</span>
-                        <div class="muscle-group">Primary: Quadriceps, Hamstrings, Glutes</div>
-                    </td>
-                    <td>15</td>
-                    <td>4</td>
-                    <td>60-90s</td>
-                </tr>
-            </table>
-
-            <h3>Day 3: Pull & Push Focus</h3>
-            <table>
-                <tr>
-                    <th>Exercise</th>
-                    <th>Reps</th>
-                    <th>Sets</th>
-                    <th>Rest Time</th>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Pull-ups negatives
-                            <span class="tooltiptext">Jumping to the top position of a pull-up and lowering slowly.</span>
-                        </span>
-                        <span class="difficulty intermediate">Intermediate</span>
-                        <div class="muscle-group">Primary: Back, Biceps</div>
-                    </td>
-                    <td>3</td>
-                    <td>5</td>
-                    <td>60-90s</td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Diamond push-ups on knees
-                            <span class="tooltiptext">Push-ups with hands forming a diamond shape, performed on knees.</span>
-                        </span>
-                        <span class="difficulty beginner">Beginner</span>
-                        <div class="muscle-group">Primary: Triceps, Chest</div>
-                    </td>
-                    <td>8</td>
-                    <td>3</td>
-                    <td>60-90s</td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Jump dips
-                            <span class="tooltiptext">Using momentum to jump into the top position of a dip, then lowering slowly.</span>
-                        </span>
-                        <span class="difficulty intermediate">Intermediate</span>
-                        <div class="muscle-group">Primary: Triceps, Chest, Shoulders</div>
-                    </td>
-                    <td>8</td>
-                    <td>3</td>
-                    <td>60-90s</td>
-                                  </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Explosive Australian chin-ups
-                            <span class="tooltiptext">A dynamic version of Australian chin-ups focusing on explosive movement.</span>
-                        </span>
-                        <span class="difficulty advanced">Advanced</span>
-                        <div class="muscle-group">Primary: Back, Biceps</div>
-                    </td>
-                    <td>6</td>
-                    <td>3</td>
-                    <td>60-90s</td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Incline push-ups
-                            <span class="tooltiptext">Push-ups performed with hands elevated on a bench or similar surface.</span>
-                        </span>
-                        <span class="difficulty beginner">Beginner</span>
-                        <div class="muscle-group">Primary: Chest, Shoulders, Triceps</div>
-                    </td>
-                    <td>8</td>
-                    <td>3</td>
-                    <td>60-90s</td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Straight legs bear crawl
-                            <span class="tooltiptext">Crawling movement on hands and feet with legs kept straight.</span>
-                        </span>
-                        <span class="difficulty intermediate">Intermediate</span>
-                        <div class="muscle-group">Primary: Shoulders, Core</div>
-                    </td>
-                    <td>15s</td>
-                    <td>3</td>
-                    <td>60-90s</td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Pike push-ups negatives
-                            <span class="tooltiptext">Lowering slowly from a pike position, targeting shoulders.</span>
-                        </span>
-                        <span class="difficulty intermediate">Intermediate</span>
-                        <div class="muscle-group">Primary: Shoulders, Triceps</div>
-                    </td>
-                    <td>5</td>
-                    <td>3</td>
-                    <td>60-90s</td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Side knees raises
-                            <span class="tooltiptext">Raising knees to the side while hanging, targeting obliques.</span>
-                        </span>
-                        <span class="difficulty intermediate">Intermediate</span>
-                        <div class="muscle-group">Primary: Obliques</div>
-                    </td>
-                    <td>6 each side</td>
-                    <td>2</td>
-                    <td>60-90s</td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Lunges
-                            <span class="tooltiptext">Stepping forward and lowering the hips to create a 90-degree angle in both legs.</span>
-                        </span>
-                        <span class="difficulty beginner">Beginner</span>
-                        <div class="muscle-group">Primary: Quadriceps, Hamstrings, Glutes</div>
-                    </td>
-                    <td>Max</td>
-                    <td>4</td>
-                    <td>60-90s</td>
-                </tr>
-            </table>
-
-            <h3>Day 5: Full Body & Core</h3>
-            <table>
-                <tr>
-                    <th>Exercise</th>
-                    <th>Reps</th>
-                    <th>Sets</th>
-                    <th>Rest Time</th>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Australian pull-ups
-                            <span class="tooltiptext">A horizontal pulling exercise that serves as a progression towards full pull-ups.</span>
-                        </span>
-                        <span class="difficulty intermediate">Intermediate</span>
-                        <div class="muscle-group">Primary: Back, Biceps</div>
-                    </td>
-                    <td>8</td>
-                    <td>3</td>
-                    <td>60-90s</td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Incline diamond push-ups
-                            <span class="tooltiptext">Push-ups with hands forming a diamond shape, performed with hands elevated.</span>
-                        </span>
-                        <span class="difficulty beginner">Beginner</span>
-                        <div class="muscle-group">Primary: Triceps, Chest</div>
-                    </td>
-                    <td>6</td>
-                    <td>3</td>
-                    <td>60-90s</td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Jump pull-ups
-                            <span class="tooltiptext">Using momentum to jump into a pull-up, focusing on a slow negative.</span>
-                        </span>
-                        <span class="difficulty intermediate">Intermediate</span>
-                        <div class="muscle-group">Primary: Back, Biceps</div>
-                    </td>
-                    <td>6</td>
-                    <td>3</td>
-                    <td>60-90s</td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Wide push-ups on knees
-                            <span class="tooltiptext">Push-ups with hands placed wider than shoulder-width, performed on knees.</span>
-                        </span>
-                        <span class="difficulty beginner">Beginner</span>
-                        <div class="muscle-group">Primary: Chest, Shoulders, Triceps</div>
-                    </td>
-                    <td>10</td>
-                    <td>3</td>
-                    <td>60-90s</td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Hindu beginner push-ups
-                            <span class="tooltiptext">A dynamic push-up variation involving a swooping motion.</span>
-                        </span>
-                        <span class="difficulty beginner">Beginner</span>
-                        <div class="muscle-group">Primary: Chest, Shoulders, Triceps</div>
-                    </td>
-                    <td>8</td>
-                    <td>3</td>
-                    <td>60-90s</td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Hollowbody on the ground
-                            <span class="tooltiptext">A core exercise where you hold a hollow position on the ground.</span>
-                        </span>
-                        <span class="difficulty intermediate">Intermediate</span>
-                        <div class="muscle-group">Primary: Core</div>
-                    </td>
-                    <td>15s</td>
-                    <td>3</td>
-                    <td>60-90s</td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Hip thrusts
-                            <span class="tooltiptext">Lifting hips towards the ceiling while lying on your back with knees bent.</span>
-                        </span>
-                        <span class="difficulty beginner">Beginner</span>
-                        <div class="muscle-group">Primary: Glutes, Hamstrings</div>
-                    </td>
-                    <td>15</td>
-                    <td>4</td>
-                    <td>60-90s</td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="tooltip">Calf raises
-                            <span class="tooltiptext">Raising your heels to stand on your toes, targeting the calf muscles.</span>
-                        </span>
-                        <span class="difficulty beginner">Beginner</span>
-                        <div class="muscle-group">Primary: Calves</div>
-                    </td>
-                    <td>10, 10, 15</td>
-                    <td>3</td>
-                    <td>60-90s</td>
-                </tr>
-            </table>
+    <div class="grid-container">
+        <!-- Day 1 -->
+        <div class="day" id="day1">
+            <div class="content">
+                <div class="content-inner front">
+                    <h2>LEVEL 1 - Day 1</h2>
+                    <p>Full Body Workout</p>
+                </div>
+                <div class="content-inner back">
+                    <button class="close-button">X</button>
+                    <h3>Full Body Workout</h3>
+                    <table>
+                        <tr>
+                            <th>Exercise</th>
+                            <th>Reps</th>
+                            <th>Sets</th>
+                            <th>Rest</th>
+                        </tr>
+                        <tr>
+                            <td>Push-ups on knees</td>
+                            <td>10</td>
+                            <td>3</td>
+                            <td>Enough</td>
+                        </tr>
+                        <tr>
+                            <td>Australian pull-ups</td>
+                            <td>8</td>
+                            <td>3</td>
+                            <td>Enough</td>
+                        </tr>
+                        <tr>
+                            <td>Push-ups negatives</td>
+                            <td>6</td>
+                            <td>3</td>
+                            <td>Enough</td>
+                        </tr>
+                        <tr>
+                            <td>Australian chin-ups</td>
+                            <td>8</td>
+                            <td>3</td>
+                            <td>Enough</td>
+                        </tr>
+                        <tr>
+                            <td>Bench dips</td>
+                            <td>10</td>
+                            <td>3</td>
+                            <td>Enough</td>
+                        </tr>
+                        <tr>
+                            <td>Jump pull-ups</td>
+                            <td>6</td>
+                            <td>3</td>
+                            <td>Enough</td>
+                        </tr>
+                        <tr>
+                            <td>Pike push-ups negatives</td>
+                            <td>8</td>
+                            <td>3</td>
+                            <td>Enough</td>
+                        </tr>
+                        <tr>
+                            <td>Bent knees leg raises</td>
+                            <td>8</td>
+                            <td>4</td>
+                            <td>Enough</td>
+                        </tr>
+                        <tr>
+                            <td>Squats</td>
+                            <td>15</td>
+                            <td>4</td>
+                            <td>Enough</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
 
-  <script type="text/javascript">
-        window.omnisend = window.omnisend || [];
-        omnisend.push(["accountID", "66989901cd60c84030c70c85"]);
-        omnisend.push(["track", "$pageViewed"]);
-        !function(){var e=document.createElement("script");
-        e.type="text/javascript",e.async=!0,
-        e.src="https://omnisnippet1.com/inshop/launcher-v2.js";
-        var t=document.getElementsByTagName("script")[0];
-        t.parentNode.insertBefore(e,t)}();
-</script>
+        <!-- Day 2 -->
+        <div class="day" id="day2">
+            <div class="content">
+                <div class="content-inner front">
+                    <h2>LEVEL 1 - Day 2</h2>
+                    <p>Rest Day</p>
+                </div>
+                <div class="content-inner back">
+                    <button class="close-button">X</button>
+                    <h3>Rest Day</h3>
+                    <p>Take this day to rest and recover.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="day" id="day3">
+            <div class="content">
+                <div class="content-inner front">
+                    <h2>LEVEL 1 - Day 3</h2>
+                    <p>Full Body Workout</p>
+                </div>
+                <div class="content-inner back">
+                    <button class="close-button">X</button>
+                    <h3>Full Body Workout</h3>
+                    <table>
+                        <tr>
+                            <th>Exercise</th>
+                            <th>Reps</th>
+                            <th>Sets</th>
+                            <th>Rest</th>
+                        </tr>
+                        <tr>
+                            <td>Pull-ups negatives</td>
+                            <td>3</td>
+                            <td>5</td>
+                            <td>Enough</td>
+                        </tr>
+                        <tr>
+                            <td>Diamond push-ups on knees</td>
+                            <td>8</td>
+                            <td>3</td>
+                            <td>Enough</td>
+                        </tr>
+                        <tr>
+                            <td>Jump dips</td>
+                            <td>8</td>
+                            <td>3</td>
+                            <td>Enough</td>
+                        </tr>
+                        <tr>
+                            <td>Explosive Australian chin-ups</td>
+                            <td>6</td>
+                            <td>3</td>
+                            <td>Enough</td>
+                        </tr>
+                        <tr>
+                            <td>Incline push-ups</td>
+                            <td>8</td>
+                            <td>3</td>
+                            <td>Enough</td>
+                        </tr>
+                        <tr>
+                            <td>Straight legs bear crawl</td>
+                            <td>15s</td>
+                            <td>3</td>
+                            <td>Enough</td>
+                        </tr>
+                        <tr>
+                            <td>Pike push-ups negatives</td>
+                            <td>5</td>
+                            <td>3</td>
+                            <td>Enough</td>
+                        </tr>
+                        <tr>
+                            <td>Side knees raises</td>
+                            <td>6 each side</td>
+                            <td>2</td>
+                            <td>Enough</td>
+                        </tr>
+                        <tr>
+                            <td>Lunges</td>
+                            <td>Max</td>
+                            <td>4</td>
+                            <td>Enough</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="day" id="day4">
+            <div class="content">
+                <div class="content-inner front">
+                    <h2>LEVEL 1 - Day 4</h2>
+                    <p>Rest Day</p>
+                </div>
+                <div class="content-inner back">
+                    <button class="close-button">X</button>
+                    <h3>Rest Day</h3>
+                    <p>Take this day to rest and recover.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 5 -->
+        <div class="day" id="day5">
+            <div class="content">
+                <div class="content-inner front">
+                    <h2>LEVEL 1 - Day 5</h2>
+                    <p>Full Body Workout</p>
+                </div>
+                <div class="content-inner back">
+                    <button class="close-button">X</button>
+                    <h3>Full Body Workout</h3>
+                    <table>
+                        <tr>
+                            <th>Exercise</th>
+                            <th>Reps</th>
+                            <th>Sets</th>
+                            <th>Rest</th>
+                        </tr>
+                        <tr>
+                            <td>Australian pull-ups</td>
+                            <td>8</td>
+                            <td>3</td>
+                            <td>Enough</td>
+                        </tr>
+                        <tr>
+                            <td>Incline diamond push-ups</td>
+                            <td>6</td>
+                            <td>3</td>
+                            <td>Enough</td>
+                        </tr>
+                        <tr>
+                            <td>Jump pull-ups</td>
+                            <td>6</td>
+                            <td>3</td>
+                            <td>Enough</td>
+                        </tr>
+                        <tr>
+                            <td>Wide push-ups on knees</td>
+                            <td>10</td>
+                            <td>3</td>
+                            <td>Enough</td>
+                        </tr>
+                        <tr>
+                            <td>Hindu beginner push-ups</td>
+                            <td>8</td>
+                            <td>3</td>
+                            <td>Enough</td>
+                        </tr>
+                        <tr>
+                            <td>Hollowbody on the ground</td>
+                            <td>15s</td>
+                            <td>3</td>
+                            <td>Enough</td>
+                        </tr>
+                        <tr>
+                            <td>Hip thrusts</td>
+                            <td>15</td>
+                            <td>4</td>
+                            <td>Enough</td>
+                        </tr>
+                        <tr>
+                            <td>Calf raises</td>
+                            <td>10,10,15</td>
+                            <td>3</td>
+                            <td>Enough</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="scripts.js"></script>
 </body>
 </html>
