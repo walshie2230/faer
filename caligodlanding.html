@@ -2,568 +2,417 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CALI GOD - 20 Levels to Mastery</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-<style>
-    :root {
-        --primary-color: #1e90ff;
-        --secondary-color: #32cd32;
-        --accent-color: #ffd700;
-        --background-color: #0a0a0a;
-        --text-color: #ffffff;
-        --card-bg: #1a1a1a;
-        --iframe-width: 100%;
-        --iframe-height: 100vh;
-    }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALI GOD - 20 LEVELS TO MASTERY</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+        :root {
+            --primary-color: #1c3738;
+            --secondary-color: #2980b9;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --bg-color: #191919;
+            --window-bg: #ffffff;
+        }
 
-    html, body {
-        width: var(--iframe-width);
-        height: var(--iframe-height);
-        overflow: auto;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    body {
-        font-family: 'Montserrat', sans-serif;
-        line-height: 1.6;
-        color: var(--text-color);
-        background-color: var(--background-color);
-    }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
 
-    .container {
-        max-width: 90rem;
-        margin: 0 auto;
-        padding: 0 1.25rem;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    header {
-        position: fixed;
-        width: 100%;
-        z-index: 1000;
-        transition: background-color 0.3s ease;
-    }
+        header {
+            background: var(--background-color);
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
 
-    header.scrolled {
-        background-color: rgba(10, 10, 10, 0.9);
-        backdrop-filter: blur(10px);
-    }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
 
-    nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1.25rem 0;
-    }
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
 
-    .logo {
-        font-size: 1.75rem;
-        font-weight: 900;
-        color: var(--primary-color);
-        text-transform: uppercase;
-        letter-spacing: 0.125rem;
-    }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
 
-    .nav-links {
-        display: flex;
-        gap: 1.875rem;
-    }
+        .feature {
+            flex-basis: calc(33.333% - 20px);
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: var(--window-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
 
-    .nav-links a {
-        color: var(--text-color);
-        text-decoration: none;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.0625rem;
-        transition: color 0.3s ease;
-    }
+        .feature:hover {
+            transform: translateY(-5px);
+        }
 
-    .nav-links a:hover {
-        color: var(--primary-color);
-    }
+        .feature i {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
 
-    .hero {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
-    }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
 
-    .hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(45deg, rgba(30, 144, 255, 0.3), rgba(50, 205, 50, 0.3)), url('https://your-image-url-here.com/image.jpg') no-repeat center center/cover;
-        z-index: -1;
-        animation: heroAnimation 20s infinite alternate;
-    }
+        .window {
+            background: var(--window-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
 
-    @keyframes heroAnimation {
-        0% { transform: scale(1); }
-        100% { transform: scale(1.1); }
-    }
+        .window-header {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .hero-content {
-        max-width: 50rem;
-        margin: 0 auto;
-        text-align: center;
-    }
+        .window-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
 
-    .hero h1 {
-        font-size: 4rem;
-        font-weight: 900;
-        margin-bottom: 1.25rem;
-        line-height: 1.2;
-        text-transform: uppercase;
-        letter-spacing: 0.125rem;
-    }
+        .window.maximized {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+        }
 
-    .hero p {
-        font-size: 1.5rem;
-        margin-bottom: 1.875rem;
-        animation: fadeInUp 1s ease 0.5s both;
-    }
+        .window:not(.maximized):hover {
+            transform: scale(1.02);
+        }
 
-    .cta-button {
-        display: inline-block;
-        background-color: var(--primary-color);
-        color: var(--text-color);
-        padding: 0.9375rem 2.5rem;
-        text-decoration: none;
-        border-radius: 3.125rem;
-        font-size: 1.125rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.0625rem;
-        transition: all 0.3s ease;
-        animation: fadeInUp 1s ease 1s both;
-    }
+        .minimize-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
 
-    .cta-button:hover {
-        background-color: var(--accent-color);
-        color: var(--background-color);
-        transform: translateY(-0.3125rem);
-        box-shadow: 0 0.625rem 1.25rem rgba(30, 144, 255, 0.3);
-    }
+        .preview-content i {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
 
-    section {
-        padding: 6.25rem 0;
-    }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+        }
 
-    .section-title {
-        font-size: 3rem;
-        text-align: center;
-        margin-bottom: 3.75rem;
-        font-weight: 900;
-        text-transform: uppercase;
-        letter-spacing: 0.125rem;
-        color: var(--primary-color);
-    }
+        .cta-button:hover {
+            background-color: #c0392b;
+        }
 
-    .benefits-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
-        gap: 2.5rem;
-    }
+        .locked-content {
+            filter: blur(5px);
+            pointer-events: none;
+        }
 
-    .benefit-card {
-        background-color: var(--card-bg);
-        padding: 1.875rem;
-        border-radius: 0.625rem;
-        text-align: center;
-        transition: transform 0.3s ease;
-    }
-
-    .benefit-card:hover {
-        transform: translateY(-0.625rem);
-        box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.3);
-    }
-
-    .benefit-card img {
-        width: 5rem;
-        height: 5rem;
-        margin-bottom: 1.25rem;
-    }
-
-    .benefit-card h3 {
-        font-size: 1.5rem;
-        font-weight: 700;
-        margin-bottom: 0.625rem;
-        color: var(--secondary-color);
-    }
-
-    .benefit-card p {
-        font-size: 1.125rem;
-        color: #dcdcdc;
-    }
-
-    .testimonials-slider {
-        display: flex;
-        overflow-x: auto;
-        scroll-behavior: smooth;
-        gap: 1.25rem;
-    }
-
-    .testimonial-card {
-        flex: 0 0 18.75rem;
-        background-color: var(--card-bg);
-        padding: 1.875rem;
-        border-radius: 0.625rem;
-        transition: transform 0.3s ease;
-    }
-
-    .testimonial-card:hover {
-        transform: translateY(-0.625rem);
-        box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.3);
-    }
-
-    .testimonial-content {
-        font-size: 1rem;
-        color: #dcdcdc;
-        margin-bottom: 1.25rem;
-    }
-
-    .testimonial-author {
-        display: flex;
-        align-items: center;
-    }
-
-    .testimonial-author img {
-        width: 3.125rem;
-        height: 3.125rem;
-        border-radius: 50%;
-        margin-right: 0.625rem;
-    }
-
-    .testimonial-author h4 {
-        font-size: 1.125rem;
-        font-weight: 700;
-        color: var(--secondary-color);
-    }
-
-    .testimonial-author p {
-        font-size: 0.875rem;
-        color: #b0b0b0;
-    }
-
-    .cta-section {
-        background-color: var(--primary-color);
-        padding: 6.25rem 0;
-        text-align: center;
-        color: var(--background-color);
-    }
-
-    .cta-section h2 {
-        font-size: 3rem;
-        font-weight: 900;
-        margin-bottom: 1.875rem;
-        text-transform: uppercase;
-        letter-spacing: 0.125rem;
-    }
-
-    .cta-section p {
-        font-size: 1.5rem;
-        margin-bottom: 2.5rem;
-    }
-
-    .pricing-table {
-        display: flex;
-        justify-content: center;
-        gap: 1.875rem;
-        flex-wrap: wrap;
-    }
-
-    .pricing-card {
-        background-color: var(--card-bg);
-        padding: 2.5rem;
-        border-radius: 0.625rem;
-        text-align: center;
-        transition: transform 0.3s ease;
-        flex: 1 1 18.75rem;
-    }
-
-    .pricing-card:hover {
-        transform: translateY(-0.625rem);
-        box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.3);
-    }
-
-    .pricing-card h3 {
-        font-size: 2rem;
-        font-weight: 700;
-        margin-bottom: 1.25rem;
-        color: var(--secondary-color);
-    }
-
-    .pricing-card p {
-        font-size: 1.125rem;
-        color: white;
-        margin-bottom: 2.5rem;
-    }
-
-    .pricing-card .price {
-        font-size: 3rem;
-        font-weight: 900;
-        margin-bottom: 1.25rem;
-color:white;
-    }
-
-    .pricing-card ul {
-        list-style: none;
-        margin-bottom: 1.875rem;
-color:white;
-    }
-
-    .pricing-card ul li {
-        font-size: 1.125rem;
-        margin-bottom: 0.625rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-color:white;
-    }
-
-    .pricing-card ul li::before {
-        content: '✓';
-        color: var(--secondary-color);
-        margin-right: 0.625rem;
-        font-size: 1.25rem;
-    }
-
-    .footer {
-        background-color: var(--background-color);
-        padding: 3.75rem 0;
-        text-align: center;
-    }
-
-    .footer p {
-        font-size: 1rem;
-        color: #a0a0a0;
-    }
-
-    @keyframes fadeInUp {
-        from {
+        .unlock-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            font-size: 1.2rem;
+            text-align: center;
             opacity: 0;
-            transform: translateY(1.25rem);
+            transition: opacity 0.3s ease;
         }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-        @media screen and (max-width: 768px) {
 
-    .nav-links {
- display: none;
-    }}
-</style>
+        .window:hover .unlock-overlay {
+            opacity: 1;
+        }
+
+        .full-content {
+            display: none;
+            padding: 20px;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .feature {
+                flex-basis: 100%;
+            }
+        }
+
+        .unlock-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #3498db;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .unlock-button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        .unlock-button:active {
+            background-color: #1c5980;
+            transform: scale(0.95);
+        }
+
+        .unlock-overlay {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            flex-direction: column;
+        }
+
+        .program-overview {
+            background-color: #191919;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .program-overview h2 {
+            text-align: center;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-item i {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item h3 {
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+
+        .program-tagline {
+            text-align: center;
+            font-style: italic;
+            margin-top: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+    </style>
 </head>
 <body>
     <header>
-        <nav class="container">
-            <div class="logo">CALI GOD</div>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#benefits">Benefits</a>
-                <a href="#testimonials">Testimonials</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </nav>
+        <h1>CALI GOD - 20 LEVELS TO MASTERY</h1>
+        <p>A Training Plan to Last a Lifetime</p>
     </header>
 
-    <section class="hero">
-        <div class="container hero-content">
-            <h1>Ultimate 20 Levels to Mastery</h1>
-            <p>Transform your body and mind with the ultimate calisthenics program designed to take you from beginner to pro.</p>
-            <a href="https://buy.stripe.com/00g17V4oJ287aKA3cd" class="cta-button">Join Now</a>
-        </div>
-    </section>
-
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">About CALI GOD</h2>
-            <p>Our 20-level calisthenics program is meticulously crafted to help you achieve mastery in bodyweight training. Each level challenges you with progressive exercises to build strength, flexibility, and endurance.</p>
-        </div>
-    </section>
-
-<section id="benefits">
     <div class="container">
-        <h2 class="section-title">Unlock Your Potential with CALI GOD</h2>
-        <div class="benefits-grid">
-            <div class="benefit-card">
-                <img src="https://cdn-icons-png.flaticon.com/128/16134/16134828.png" alt="Functional Strength">
-                <h3>Functional Strength</h3>
-                <p>Transform your physical capabilities with structured levels that enhance your functional strength, ensuring you perform better in everyday activities and sports.</p>
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-dumbbell"></i>
+                <h3>Strength Training</h3>
+                <p>Build muscle and increase strength</p>
             </div>
-            <div class="benefit-card">
-                <img src="https://cdn-icons-png.flaticon.com/128/16829/16829329.png" alt="Flexibility & Mobility">
-                <h3>Flexibility & Mobility</h3>
-                <p>Achieve greater flexibility and mobility through meticulously designed exercises and stretches, making your body more resilient and less prone to injury.</p>
+            <div class="feature">
+                <i class="fas fa-heartbeat"></i>
+                <h3>Cardio Fitness</h3>
+                <p>Enhance cardiovascular endurance</p>
             </div>
-            <div class="benefit-card">
-                <img src="https://cdn-icons-png.flaticon.com/128/17039/17039040.png" alt="Endurance & Stamina">
-                <h3>Endurance & Stamina</h3>
-                <p>Push your limits with challenging workouts that build endurance and stamina, allowing you to sustain higher levels of activity for longer periods.</p>
+            <div class="feature">
+                <i class="fas fa-running"></i>
+                <h3>Transform your Physique</h3>
+                <p>Recomposition like never before</p>
             </div>
         </div>
+
+        <div class="grid">
+            <div class="window" id="level-1">
+                <div class="window-header">
+                    <h2>Level 1: Beginner</h2>
+                    <button class="minimize-btn" onclick="toggleMaximize(this)">☐</button>
+                </div>
+                <div class="window-content">
+                    <div class="locked-content">
+                        <div class="preview-content">
+                            <i class="fas fa-lock"></i>
+                            <p>Unlock to see more</p>
+                        </div>
+                        <div class="unlock-overlay">
+                            <a href="#" class="unlock-button">Unlock Now</a>
+                        </div>
+                    </div>
+                    <div class="full-content">
+                        <h3>Welcome to Level 1</h3>
+                        <p>Start your journey with basic exercises and routines.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="window" id="level-2">
+                <div class="window-header">
+                    <h2>Level 2: Intermediate</h2>
+                    <button class="minimize-btn" onclick="toggleMaximize(this)">☐</button>
+                </div>
+                <div class="window-content">
+                    <div class="locked-content">
+                        <div class="preview-content">
+                            <i class="fas fa-lock"></i>
+                            <p>Unlock to see more</p>
+                        </div>
+                        <div class="unlock-overlay">
+                            <a href="#" class="unlock-button">Unlock Now</a>
+                        </div>
+                    </div>
+                    <div class="full-content">
+                        <h3>Welcome to Level 2</h3>
+                        <p>Build on your foundation with more challenging workouts.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more levels as needed -->
+
+        </div>
+
+        <div class="program-overview">
+            <h2>Program Overview</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>20 Levels of Mastery</h3>
+                    <p>Progress through 20 levels over 20 weeks</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-users"></i>
+                    <h3>Comprehensive Levels</h3>
+                    <p>4-6Wks per level ensuring proper progressive overload and skill acqiusiition</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-trophy"></i>
+                    <h3>Achieve Bodyweight Mastery</h3>
+                    <p>Reach the highest level of calisthenics</p>
+                </div>
+            </div>
+        </div>
+<!--
+        <div class="cta">
+            <a href="" class="cta-button">Join Now</a>
+        </div>-->
     </div>
-</section>
 
-    </section>
+    <script>
+        function toggleMaximize(button) {
+            var windowElement = button.closest('.window');
+            windowElement.classList.toggle('maximized');
 
-    <section id="testimonials">
-        <div class="container">
-            <h2 class="section-title">Testimonials</h2>
-            <div class="testimonials-slider">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">"This program has completely transformed my fitness journey. Each level is perfectly structured to build on the previous one."</div>
-                    <div class="testimonial-author">
-                        <div>
-                            <h4>Alex Walsh</h4>
-                            <p>Fitness Enthusiast</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">"I have seen incredible improvements in my strength and flexibility since starting this program. Highly recommend it!"</div>
-                    <div class="testimonial-author">
-                        <div>
-                            <h4>Vince Ovijach</h4>
-                            <p>Yoga Instructor</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">"The 20 levels of CALI GOD have been a game-changer for me. The progressive nature of the workouts keeps me motivated and challenged."</div>
-                    <div class="testimonial-author">
-                        <div>
-                            <h4>Kane Doyle</h4>
-                            <p>Personal Trainer</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            var lockedContent = windowElement.querySelector('.locked-content');
+            var fullContent = windowElement.querySelector('.full-content');
 
-    <section class="cta-section" id="pricing">
-        <div class="container">
-            <h2>Get Started with CALI GOD</h2>
-            <p>Join our program today and unlock your true potential with the ultimate calisthenics mastery journey.</p>
-            <div class="pricing-table">
-                <div class="pricing-card">
-                    <h3>Basic Plan</h3>
-                    <p>Perfect for beginners looking to start their calisthenics journey.</p>
-                    <div class="price">$29.99</div>
-                    <ul>
-                        <li>Access to Levels 1-5</li>
-                        <li>Community Support</li>
-                        <li>Basic Diet Plans</li>
-                    </ul>
-                    <a href="https://buy.stripe.com/00g17V4oJ287aKA3cd" class="cta-button">Join Now</a>
-                </div>
-                <div class="pricing-card">
-                    <h3>Pro Plan</h3>
-                    <p>For those ready to take their training to the next level.</p>
-                    <div class="price">$49.99</div>
-                    <ul>
-                        <li>Access to Levels 1-15</li>
-                        <li>Advanced Community Support</li>
-                        <li>Comprehensive Diet Plans</li>
-                    </ul>
-                    <a href="https://buy.stripe.com/00g17V4oJ287aKA3cd" class="cta-button">Join Now</a>
-                </div>
-                <div class="pricing-card">
-                    <h3>Master Plan</h3>
-                    <p>The ultimate plan for those aiming for complete mastery.</p>
-                    <div class="price">$69.99</div>
-                    <ul>
-                        <li>Access to All 20 Levels</li>
-                        <li>Exclusive Community Access</li>
-                        <li>Personalized Diet and Workout Plans</li>
-                    </ul>
-                    <a href="https://buy.stripe.com/00g17V4oJ287aKA3cd" class="cta-button">Join Now</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 CALI GOD. All rights reserved.</p>
-        </div>
-    </footer>
-
-<script>
-    window.addEventListener('scroll', function() {
-        const header = document.querySelector('header');
-        header.classList.toggle('scrolled', window.scrollY > 0);
-    });
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    gsap.from(".hero-content h1", {
-        duration: 1,
-        y: -50,
-        opacity: 0,
-        ease: "power1.out",
-    });
-
-    gsap.from(".hero-content p", {
-        duration: 1,
-        y: 50,
-        opacity: 0,
-        delay: 0.5,
-        ease: "power1.out",
-    });
-
-    gsap.from(".cta-button", {
-        duration: 1,
-        scale: 0.8,
-        opacity: 0,
-        delay: 1,
-        ease: "back.out(1.7)",
-    });
-
-    gsap.utils.toArray('.section-title').forEach(title => {
-        gsap.from(title, {
-            scrollTrigger: {
-                trigger: title,
-                start: 'top 80%',
-                toggleActions: 'play none none none',
-            },
-            y: 30,
-            opacity: 0,
-            duration: 0.7,
-            ease: "power1.out",
-        });
-    });
-
-    gsap.utils.toArray('.benefit-card, .testimonial-card, .pricing-card').forEach(card => {
-        gsap.from(card, {
-            scrollTrigger: {
-                trigger: card,
-                start: 'top 80%',
-                toggleActions: 'play none none none',
-            },
-            y: 50,
-            opacity: 0,
-            duration: 0.7,
-            stagger: 0.2,
-            ease: "power1.out",
-        });
-    });
-</script>
+            if (windowElement.classList.contains('maximized')) {
+                lockedContent.style.display = 'none';
+                fullContent.style.display = 'block';
+            } else {
+                lockedContent.style.display = 'block';
+                fullContent.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
