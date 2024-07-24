@@ -3,23 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pay What and How You Want, When You Want</title>
+    <title>Dynamic Pricing Table</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-
+            --primary-color: #4a148c;
+            --secondary-color: #00c853;
             --background-color: #191919;
             --surface-color: #ffffff;
             --text-color: #333333;
             --border-color: #e0e0e0;
             --hover-color: #ede7f6;
-          
-                      --primary-color: #1c3738;
-            --secondary-color: #2980b9;
-            --accent-color: #e74c3c;
-            --text-color: #333;
-            --bg-color: #191919;
-            --window-bg: #ffffff;
+            --phase-one-color: #e3f2fd;
+            --phase-two-color: #ffecb3;
+            --phase-three-color: #c8e6c9;
         }
 
         body {
@@ -50,69 +47,63 @@
         .description {
             text-align: center;
             max-width: 600px;
-            margin: 0 auto 40px;
+            margin: 0 auto 20px;
             font-size: 1.1rem;
             color: #555;
         }
 
-        .pricing-options {
-            display: grid;
-            gap: 20px;
-        }
-
-        .pricing-option {
-            background-color: var(--surface-color);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .pricing-option h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin: 0;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .pricing-option h2 .arrow {
-            transition: transform 0.3s ease;
-        }
-
-        .pricing-option .details {
-            display: none;
-            padding: 20px 0;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .pricing-option.open .details {
-            display: block;
-        }
-
-        .pricing-option.open h2 .arrow {
-            transform: rotate(180deg);
-        }
-
-        .price {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin: 10px 0;
-        }
-
-        .weekly-cost, .savings {
+        .note {
+            text-align: center;
+            margin-bottom: 20px;
             font-size: 1rem;
-            color: #666;
-            margin-bottom: 10px;
+            color: #777;
         }
 
-        .savings {
-            color: var(--secondary-color);
-            font-weight: 600;
+        .select-all-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .pricing-table {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+        }
+
+        .level {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .level.selected {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .level.phase-one {
+            background-color: var(--phase-one-color);
+        }
+
+        .level.phase-two {
+            background-color: var(--phase-two-color);
+        }
+
+        .level.phase-three {
+            background-color: var(--phase-three-color);
+        }
+
+        .price-summary {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: var(--primary-color);
         }
 
         .btn {
@@ -126,7 +117,7 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 10px;
+            margin-top: 20px;
         }
 
         .btn:hover {
@@ -138,58 +129,73 @@
 </head>
 <body>
     <div class="container">
-        <h1>Pay What and How You Want, When You Want</h1>
+        <h1>Choose Your Levels</h1>
         <p class="description">
-            Choose your ideal duration and enjoy maximum flexibility. Longer plans offer greater savings!
+            Select the levels you want. The more levels you select, the cheaper the unit price. Select all 20 levels for just $79!
         </p>
-        <div class="pricing-options" id="pricingOptions">
-            <!-- Pricing options will be dynamically populated by JavaScript -->
+        <p class="note">Each level can last 4-6 weeks or more.</p>
+        <div class="select-all-container">
+            <button class="btn" onclick="selectAllLevels()">Select All</button>
         </div>
+        <div class="pricing-table" id="pricingTable">
+            <!-- Levels will be dynamically populated by JavaScript -->
+        </div>
+        <div class="price-summary" id="priceSummary">
+            Total Price: $0
+        </div>
+        <a href="#" class="btn">Checkout</a>
     </div>
 
     <script>
-        const pricingData = [
-            { duration: 1, price: 6.99, stripeLink: "https://buy.stripe.com/fZe6sfg7r7sr3i8aEI" },
-            { duration: 4, price: 23.99, stripeLink: "https://buy.stripe.com/eVa17V3kF143aKAfZ5" },
-            { duration: 12, price: 59.99, stripeLink: "https://buy.stripe.com/dR6dUH5sN4gfaKA9AC" }
-        ];
+        const totalLevels = 20;
+        const basePrice = 6.99; // base price per level
+        const maxPrice = 79; // price for all 20 levels
+        const pricingTable = document.getElementById('pricingTable');
+        const priceSummary = document.getElementById('priceSummary');
 
-        const pricingOptions = document.getElementById('pricingOptions');
-
-        function createPricingOption(data, isBestValue) {
-            const option = document.createElement('div');
-            option.className = `pricing-option${isBestValue ? ' best-value' : ''}`;
-            
-            const weeklyPrice = (data.price / data.duration).toFixed(2);
-            const savings = ((6.99 * data.duration) - data.price).toFixed(2);
-
-            option.innerHTML = `
-                <h2>${data.duration} week${data.duration > 1 ? 's' : ''} <span class="arrow">&#9660;</span></h2>
-                <div class="details">
-                    <div class="price">$${data.price.toFixed(2)}</div>
-                    <div class="weekly-cost">$${weeklyPrice} / week</div>
-                    <div class="savings">Save $${savings}</div>
-                    <a href="${data.stripeLink}" class="btn" target="_blank" rel="noopener noreferrer">Select ✅</a>
-                </div>
-            `;
-
-            option.querySelector('h2').addEventListener('click', () => {
-                option.classList.toggle('open');
-            });
-
-            return option;
+        function calculatePrice(selectedLevels) {
+            const unitPrice = basePrice - ((basePrice - (maxPrice / totalLevels)) / (totalLevels - 1)) * (selectedLevels - 1);
+            return (unitPrice * selectedLevels).toFixed(2);
         }
 
-        function populatePricingOptions() {
-            pricingData.forEach((data, index) => {
-                const isBestValue = index === pricingData.length - 1;
-                const option = createPricingOption(data, isBestValue);
-                pricingOptions.appendChild(option);
-            });
+        function updatePriceSummary() {
+            const selectedLevels = document.querySelectorAll('.level.selected').length;
+            const totalPrice = selectedLevels ? calculatePrice(selectedLevels) : 0;
+            priceSummary.textContent = `Total Price: $${totalPrice}`;
         }
 
-        // Initialize pricing options
-        populatePricingOptions();
+        function toggleLevel(level) {
+            level.classList.toggle('selected');
+            updatePriceSummary();
+        }
+
+        function populatePricingTable() {
+            for (let i = 1; i <= totalLevels; i++) {
+                const level = document.createElement('div');
+                level.className = `level ${getPhaseClass(i)}`;
+                level.textContent = `Level ${i}`;
+                level.addEventListener('click', () => toggleLevel(level));
+                pricingTable.appendChild(level);
+            }
+        }
+
+        function getPhaseClass(level) {
+            if (level <= 8) {
+                return 'phase-one';
+            } else if (level <= 16) {
+                return 'phase-two';
+            } else {
+                return 'phase-three';
+            }
+        }
+
+        function selectAllLevels() {
+            document.querySelectorAll('.level').forEach(level => level.classList.add('selected'));
+            updatePriceSummary();
+        }
+
+        // Initialize pricing table
+        populatePricingTable();
     </script>
 </body>
 </html>
