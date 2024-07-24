@@ -479,15 +479,18 @@
             unlockOverlay.style.display = 'none';
         });
 
-        // Add hyperlink button to unlock overlay
-        if (unlockOverlay) {
-            const unlockButton = document.createElement('a');
-            unlockButton.href = 'https://buy.stripe.com/6oE7wjaN7cMLdWM28g'; // Replace with your specific link
-            unlockButton.className = 'unlock-button';
-            unlockButton.textContent = 'Unlock';
-            unlockOverlay.appendChild(unlockButton);
-        }
-    });
+    // Add hyperlink button to unlock overlay
+    const unlockOverlay = window.querySelector('.unlock-overlay');
+    if (unlockOverlay) {
+        const unlockButton = document.createElement('a');
+        unlockButton.href = 'https://buy.stripe.com/6oE7wjaN7cMLdWM28g'; // Replace with your specific link
+        unlockButton.target = '_blank'; // This makes the link open in a new tab/window
+        unlockButton.rel = 'noopener noreferrer'; // This is a security best practice when using target="_blank"
+        unlockButton.className = 'unlock-button';
+        unlockButton.textContent = 'Unlock';
+        unlockOverlay.appendChild(unlockButton);
+    }
+});
 
     // Simulating unlock functionality (replace with actual purchase flow)
     document.querySelectorAll('.cta-button').forEach(button => {
