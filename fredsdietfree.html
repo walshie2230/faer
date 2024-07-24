@@ -6,19 +6,25 @@
     <title>FAER Dojo Warrior Shredding Program</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
         :root {
-            --primary-color: #3498db;
-            --secondary-color: #2ecc71;
+            --primary-color: #1c3738;
+            --secondary-color: #2980b9;
+            --accent-color: #e74c3c;
             --text-color: #333;
-            --bg-color: #f8f9fa;
+            --bg-color: #191919;
+            --window-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
+            font-family: 'Poppins', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
@@ -26,120 +32,219 @@
 
         .container {
             max-width: 1200px;
-            margin: auto;
-            padding: 0 20px;
-            position: relative;
-            overflow: hidden;
+            margin: 0 auto;
+            padding: 20px;
         }
 
         header {
-            background: var(--primary-color);
+            background: var(--background-color);
             color: #fff;
+            text-align: center;
             padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
             text-align: center;
         }
 
-        h1, h2, h3, h4 {
-            margin-top: 0;
-        }
-
-        .section {
-            background: #fff;
+        .feature {
+            flex-basis: calc(33.333% - 20px);
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: var(--window-bg);
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin: 2rem 0;
-            padding: 2rem;
             transition: transform 0.3s ease;
         }
 
-        .section:hover {
+        .feature:hover {
             transform: translateY(-5px);
         }
 
-        .meal {
-            margin-bottom: 1.5rem;
-            background: #f0f0f0;
-            padding: 1rem;
-            border-radius: 8px;
-        }
-
-        .meal h4 {
+        .feature i {
+            font-size: 2rem;
             color: var(--secondary-color);
             margin-bottom: 0.5rem;
         }
 
-        ul {
-            padding-left: 1.5rem;
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
         }
 
-        ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: #2980b9;
-        }
-
-        .highlight {
-            background-color: #fffacd;
-            padding: 0.2rem 0.4rem;
-            border-radius: 4px;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 10px;
-            }
-        }
-
-        .paywall {
-            position: absolute;
-            top: 800px;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(transparent, #fff);
+        .window {
+            background: var(--window-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            height: 300px;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
+            position: relative;
+        }
+
+        .window-header {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .window-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
             text-align: center;
         }
 
-        .paywall-content {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
+        .window.maximized {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
         }
 
-        .pay-button {
+        .window:not(.maximized):hover {
+            transform: scale(1.02);
+        }
+
+        .minimize-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .preview-content i {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .cta-button {
             display: inline-block;
-            background-color: #4CAF50;
-            color: white;
+            background-color: var(--accent-color);
+            color: #fff;
             padding: 10px 20px;
-            text-decoration: none;
             border-radius: 5px;
+            text-decoration: none;
             font-weight: bold;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
         }
 
-        .content-wrapper {
-            max-height: 800px;
-            overflow: hidden;
+        .cta-button:hover {
+            background-color: #c0392b;
         }
 
-        .program-overview {
-            background-color: #f8f9fa;
+        .locked-content {
+            filter: blur(5px);
+            pointer-events: none;
+        }
+
+        .unlock-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            font-size: 1.2rem;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .window:hover .unlock-overlay {
+            opacity: 1;
+        }
+
+        .full-content {
+            display: none;
+            padding: 20px;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .feature {
+                flex-basis: 100%;
+            }
+        }
+      .unlock-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #3498db;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .unlock-button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        .unlock-button:active {
+            background-color: #1c5980;
+            transform: scale(0.95);
+        }
+
+        .unlock-overlay {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            flex-direction: column; /* Center the button vertically */
+        }
+      
+              .program-overview {
+            background-color: #191919;
             border-radius: 10px;
             padding: 2rem;
             margin: 2rem 0;
@@ -148,7 +253,7 @@
 
         .program-overview h2 {
             text-align: center;
-            color: var(--primary-color);
+            color: white;
             margin-bottom: 1.5rem;
         }
 
@@ -186,324 +291,132 @@
             font-style: italic;
             margin-top: 1.5rem;
             font-weight: bold;
-            color: var(--primary-color);
+            color: var(--accent-color);
         }
 
-        .free-meal-plan {
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            padding: 2rem;
-            margin: 2rem 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .free-meal-plan h2 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .meal-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .meal-box {
-            background: #fff;
-            border-radius: 8px;
-            padding: 1.5rem;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-
-        .meal-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        .meal-box h4 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-
-        .meal-box i {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .meal-details {
-            display: none;
-            text-align: left;
-        }
-
-        .meal-details h5 {
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .meal-details ul {
-            padding-left: 1.5rem;
-        }
-
-        .meal-details li {
-            margin-bottom: 0.5rem;
-        }
-
-        .meal-box.active .meal-details {
-            display: block;
-        }
-
-        .meal-box.active i {
-            display: none;
-        }
-
-.macro-calculator {
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    padding: 2rem;
-    margin: 2rem 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.calculator-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-}
-
-.input-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.input-group label {
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-}
-
-.input-group input,
-.input-group select {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.calculate-btn {
-    grid-column: 1 / -1;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 0.75rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.calculate-btn:hover {
-    background-color: #2980b9;
-}
-
-.results-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-.macro-result {
-    background-color: white;
-    padding: 1rem;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.macro-result h4 {
-    margin: 0;
-    color: var(--secondary-color);
-}
-
-.macro-result p {
-    margin: 0.5rem 0 0;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
     </style>
-    <script>
-        // Disable right-click
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
-
-        // Paywall functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const paywall = document.querySelector('.paywall');
-            const contentWrapper = document.querySelector('.content-wrapper');
-
-            contentWrapper.style.maxHeight = '800px';
-            paywall.style.display = 'flex';
-
-            document.querySelector('.pay-button').addEventListener('click', function() {
-                paywall.style.display = 'none';
-                contentWrapper.style.maxHeight = 'none';
-            });
-
-            const mealBoxes = document.querySelectorAll('.meal-box');
-
-            mealBoxes.forEach(box => {
-                box.addEventListener('click', function() {
-                    this.classList.toggle('active');
-                });
-            });
-        });
-function calculateMacros() {
-    const weight = parseFloat(document.getElementById('weight').value);
-    const goal = document.getElementById('goal').value;
-    let protein, carbs, fat, calories;
-
-    switch(goal) {
-        case 'cutting':
-            protein = weight * 2.5;
-            fat = weight;
-            carbs = weight * 2;
-            calories = (protein * 4) + (carbs * 4) + (fat * 9);
-            break;
-        case 'bulking':
-            protein = weight * 2;
-            fat = weight * 0.8;
-            carbs = weight * 5;
-            calories = weight * 16;
-            break;
-        case 'maintaining':
-            protein = weight * 2;
-            fat = weight * 1.25;
-            carbs = weight * 3;
-            calories = (protein * 4) + (carbs * 4) + (fat * 9);
-            break;
-    }
-
-    const results = `
-        <div class="macro-result">
-            <h4>Calories</h4>
-            <p>${Math.round(calories)} kcal</p>
-        </div>
-        <div class="macro-result">
-            <h4>Protein</h4>
-            <p>${Math.round(protein)}g</p>
-        </div>
-        <div class="macro-result">
-            <h4>Carbs</h4>
-            <p>${Math.round(carbs)}g</p>
-        </div>
-        <div class="macro-result">
-            <h4>Fat</h4>
-            <p>${Math.round(fat)}g</p>
-        </div>
-    `;
-
-    document.getElementById('results').innerHTML = results;
-}
-    </script>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>FAER Dojo Warrior Shredding Program</h1>
-            <p>Transform Your Physique, Optimize Your Life</p>
-        </header>
+    <header>
+        <h1>FAER Dojo Warrior Shredding Program</h1>
+        <p>Transform Your Physique, Optimize Your Life</p>
+    </header>
 
-        <div class="section free-meal-plan">
-            <h2>🍽️ Free Daily Meal Plan Template</h2>
-            <p>Start your transformation journey with this sample meal plan:</p>
-            <div class="meal-grid">
-                <div class="meal-box" data-meal="breakfast">
-                    <h4>Breakfast</h4>
-                    <i class="fas fa-egg"></i>
-                    <div class="meal-details">
-                        <h5>Power-Packed Eggs</h5>
-                        <ul>
-                            <li>2 whole eggs + 1 cup egg whites (scrambled)</li>
-                            <li>1 banana or bowl of fresh strawberries</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="meal-box" data-meal="snack1">
-                    <h4>Mid-Morning Snack</h4>
-                    <i class="fas fa-blender"></i>
-                    <div class="meal-details">
-                        <h5>Quick Protein Shake</h5>
-                        <ul>
-                            <li>40g whey/casein protein powder</li>
-                            <li>1 medium banana</li>
-                            <li>20g almonds</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="meal-box" data-meal="lunch">
-                    <h4>Lunch</h4>
-                    <i class="fas fa-drumstick-bite"></i>
-                    <div class="meal-details">
-                        <h5>Lean Protein with Complex Carbs</h5>
-                        <ul>
-                            <li>150g grilled chicken breast</li>
-                            <li>1 cup brown rice or quinoa</li>
-                            <li>1 cup mixed vegetables</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="meal-box" data-meal="snack2">
-                    <h4>Afternoon Snack</h4>
-                    <i class="fas fa-cheese"></i>
-                    <div class="meal-details">
-                        <h5>High-Protein Dairy Boost</h5>
-                        <ul>
-                            <li>250g 2% cottage cheese or Greek yogurt</li>
-                            <li>1 medium apple</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="meal-box" data-meal="dinner">
-                    <h4>Dinner</h4>
-                    <i class="fas fa-fish"></i>
-                    <div class="meal-details">
-                        <h5>Balanced Nutrition</h5>
-                        <ul>
-                            <li>150g lean beef or fish</li>
-                            <li>1 medium sweet potato</li>
-                            <li>2 cups leafy greens with olive oil dressing</li>
-                        </ul>
-                    </div>
-                </div>
+    <div class="container">
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-fire-alt"></i>
+                <h3>Rapid Fat Loss</h3>
+                <p>Shed fat while preserving muscle mass</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-dumbbell"></i>
+                <h3>Muscle Definition</h3>
+                <p>Sculpt and define your muscles</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-bolt"></i>
+                <h3>Increased Energy</h3>
+                <p>Optimize your diet for peak performance</p>
             </div>
         </div>
 
-      <div class="section macro-calculator">
-    <h2>🧮 Macro Calculator</h2>
-    <p>Calculate your personalized macros based on your goals:</p>
-    <div class="calculator-grid">
-        <div class="input-group">
-            <label for="weight">Weight (kg):</label>
-            <input type="number" id="weight" required>
+        <div class="grid">
+            <div class="window" id="meal-plan-window">
+                <div class="window-header">
+                    <h2>Customized Meal Plans</h2>
+                    <button class="minimize-btn">&minus;</button>
+                </div>
+                <div class="window-content">
+                    <div class="preview-content">
+                        <i class="fas fa-utensils"></i>
+                        <h3>Unlock Your Personalized Meal Plan</h3>
+                        <p>Tailored nutrition for maximum results</p>
+                        <a href="#" class="cta-button">Get Your Plan</a>
+                    </div>
+                    <div class="full-content">
+                        <h3>Your Customized Meal Plan</h3>
+                        <p>Here you'll find your personalized meal plan, tailored to your specific needs and goals.</p>
+                        <!-- Add more detailed meal plan content here -->
+                    </div>
+                </div>
+                <div class="unlock-overlay">
+                    <p>Unlock Full Access to Your Customized Meal Plan</p>
+                </div>
+            </div>
+
+            <div class="window" id="macro-calculator-window">
+                <div class="window-header">
+                    <h2>Macro Calculator</h2>
+                    <button class="minimize-btn">&minus;</button>
+                </div>
+                <div class="window-content">
+                    <div class="preview-content">
+                        <i class="fas fa-calculator"></i>
+                        <h3>Calculate Your Perfect Macros</h3>
+                        <p>Optimize your nutrition for your goals</p>
+                        <a href="#" class="cta-button">Calculate Now</a>
+                    </div>
+                    <div class="full-content">
+                        <h3>Advanced Macro Calculator</h3>
+                        <p>Use this tool to calculate your personalized macronutrient needs based on your goals.</p>
+                        <!-- Add macro calculator form and results display here -->
+                    </div>
+                </div>
+                <div class="unlock-overlay">
+                    <p>Unlock Full Access to the Advanced Macro Calculator</p>
+                </div>
+            </div>
+
+            <div class="window" id="workout-plan-window">
+                <div class="window-header">
+                    <h2>Warrior Workout Plan</h2>
+                    <button class="minimize-btn">&minus;</button>
+                </div>
+                <div class="window-content">
+                    <div class="preview-content">
+                        <i class="fas fa-running"></i>
+                        <h3>Unlock Your Warrior Workout Plan</h3>
+                        <p>Scientifically designed for maximum fat burn</p>
+                        <a href="#" class="cta-button">Start Training</a>
+                    </div>
+                    <div class="full-content">
+                        <h3>Your Warrior Workout Plan</h3>
+                        <p>Follow this comprehensive workout plan to achieve your warrior physique.</p>
+                        <!-- Add detailed workout plan content here -->
+                    </div>
+                </div>
+                <div class="unlock-overlay">
+                    <p>Unlock Full Access to Your Warrior Workout Plan</p>
+                </div>
+            </div>
+
+            <div class="window" id="progress-tracker-window">
+                <div class="window-header">
+                    <h2>Progress Tracker</h2>
+                    <button class="minimize-btn">&minus;</button>
+                </div>
+                <div class="window-content">
+                    <div class="preview-content">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Track Your Transformation</h3>
+                        <p>Monitor your progress and stay motivated</p>
+                        <a href="#" class="cta-button">Start Tracking</a>
+                    </div>
+                    <div class="full-content">
+                        <h3>Your Progress Tracker</h3>
+                        <p>Use this tool to log your measurements, weight, and photos to visualize your progress.</p>
+                        <!-- Add progress tracking tools and charts here -->
+                    </div>
+                </div>
+                <div class="unlock-overlay">
+                    <p>Unlock Full Access to the Progress Tracker</p>
+                </div>
+            </div>
         </div>
-        <div class="input-group">
-            <label for="goal">Goal:</label>
-            <select id="goal">
-                <option value="cutting">Cutting</option>
-                <option value="bulking">Bulking</option>
-                <option value="maintaining">Maintaining</option>
-            </select>
-        </div>
-        <button onclick="calculateMacros()" class="calculate-btn">Calculate Macros</button>
     </div>
-    <div id="results" class="results-grid"></div>
-</div>
-        
-        <div class="program-overview">
+  
+          <div class="program-overview">
             <h2>Unlock Your Warrior Physique</h2>
             <div class="feature-grid">
                 <div class="feature-item">
@@ -534,74 +447,63 @@ function calculateMacros() {
             <p class="program-tagline">Transform your physique with science-backed methods.</p>
         </div>
 
-        <div class="content-wrapper">
-            <section class="section diet-plan">
-                <h2>🍽️ Precision Nutrition Plan</h2>
-                <h3>Meal Templates</h3>
-                <div class="meal">
-                    <h4>High-Protein Dairy Boost</h4>
-                    <ul>
-                        <li>400g 2% cottage cheese or Greek yogurt</li>
-                        <li>1 medium apple</li>
-                    </ul>
-                </div>
-                <div class="meal">
-                    <h4>Power-Packed Eggs</h4>
-                    <ul>
-                        <li>2 whole eggs + 1 cup egg whites (scrambled)</li>
-                        <li>1 banana or bowl of fresh strawberries</li>
-                    </ul>
-                </div>
-                <div class="meal">
-                    <h4>Quick Protein Shake</h4>
-                    <ul>
-                        <li>40g whey/casein protein powder</li>
-                        <li>1 medium banana</li>
-                        <li>20g almonds</li>
-                    </ul>
-                </div>
-                <h3>Daily Meal Plan (180 lb individual)</h3>
-                <div class="meal">
-                    <h4>Morning Kickstart</h4>
-                    <ul>
-                        <li>1-2 cups black coffee</li>
-                        <li>Hydrate with water</li>
-                    </ul>
-                </div>
-                <div class="meal">
-                    <h4>Midday Fuel (85g protein, 65g carbs, 30g fat)</h4>
-                    <ul>
-                        <li>400g lean protein source</li>
-                        <li>300g complex carbs (potatoes/sweet potatoes) or 90g rice/pasta</li>
-                        <li>1 tsp healthy oil</li>
-                        <li>Mixed greens with vinegar or lemon juice</li>
-                    </ul>
-                </div>
-                <div class="meal">
-                    <h4>Evening Refuel (50g protein, 50g carbs, 10g fat)</h4>
-                    <ul>
-                        <li>250g lean protein source</li>
-                        <li>300g complex carbs (potatoes/sweet potatoes) or 60g rice/pasta</li>
-                        <li>Mixed greens with vinegar or lemon juice</li>
-</ul>
-                </div>
-                <div class="meal">
-                    <h4>Pre-Bed Recharge</h4>
-                    <ul>
-                        <li>300g 2% cottage cheese or Greek yogurt</li>
-                        <li>1 apple or serving of berries</li>
-                    </ul>
-                </div>
-            </section>
-        </div>
-        
-        <div class="paywall">
-            <div class="paywall-content">
-                <h2>Access the Full Program</h2>
-                <p>Unlock the full program for a one-time fee of $5</p>
-                <a href="https://buy.stripe.com/6oE7wjaN7cMLdWM28g" class="pay-button">Unlock Now</a>
-            </div>
-        </div>
-    </div>
+ <script>
+    document.querySelectorAll('.window').forEach(window => {
+        const minimizeBtn = window.querySelector('.minimize-btn');
+        const previewContent = window.querySelector('.preview-content');
+        const fullContent = window.querySelector('.full-content');
+        const unlockOverlay = window.querySelector('.unlock-overlay');
+
+        // Event listener for window click
+        window.addEventListener('click', function(e) {
+            if (e.target !== minimizeBtn && !minimizeBtn.contains(e.target)) {
+                this.classList.toggle('maximized');
+                if (this.classList.contains('maximized')) {
+                    previewContent.style.display = 'none';
+                    fullContent.style.display = 'block';
+                    unlockOverlay.style.display = 'flex';
+                } else {
+                    previewContent.style.display = 'block';
+                    fullContent.style.display = 'none';
+                    unlockOverlay.style.display = 'none';
+                }
+            }
+        });
+
+        // Event listener for minimize button
+        minimizeBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            window.classList.remove('maximized');
+            previewContent.style.display = 'block';
+            fullContent.style.display = 'none';
+            unlockOverlay.style.display = 'none';
+        });
+
+        // Add hyperlink button to unlock overlay
+        if (unlockOverlay) {
+            const unlockButton = document.createElement('a');
+            unlockButton.href = 'https://buy.stripe.com/6oE7wjaN7cMLdWM28g'; // Replace with your specific link
+            unlockButton.className = 'unlock-button';
+            unlockButton.textContent = 'Unlock';
+            unlockOverlay.appendChild(unlockButton);
+        }
+    });
+
+    // Simulating unlock functionality (replace with actual purchase flow)
+    document.querySelectorAll('.cta-button').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const window = this.closest('.window');
+            const unlockOverlay = window.querySelector('.unlock-overlay');
+            unlockOverlay.style.display = 'none';
+            window.querySelector('.full-content').classList.remove('locked-content');
+            this.textContent = 'Accessed';
+            this.style.backgroundColor = '#27ae60';
+        });
+    });
+</script>
+
+  
 </body>
 </html>
